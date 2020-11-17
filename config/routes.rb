@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  resources :interventions
   devise_for :admin_users, ActiveAdmin::Devise.config
   
   resources :elevators
@@ -13,6 +11,7 @@ Rails.application.routes.draw do
   resources :buildings
 
   resource :quotes
+  resource :interventions
   resource :leads
 
   resource :employees
@@ -30,6 +29,7 @@ Rails.application.routes.draw do
   get 'index' => 'pages#index'
   get 'admin_root' => 'elevators#index'
   get 'googledcf02c3ead535472.html' => 'pages#googledcf02c3ead535472.html'
+  get 'intervention', to: 'interventions#new'
 
   # POST routes
 
