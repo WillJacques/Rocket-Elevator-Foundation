@@ -1,6 +1,6 @@
 class InterventionsController < InheritedResources::Base
   before_action :set_intervention, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!
+  before_action :authenticate_admin_user!
 
   # GET /interventions
   # GET /interventions.json
@@ -16,10 +16,6 @@ class InterventionsController < InheritedResources::Base
   # GET /interventions/new
   def new
     @intervention = Intervention.new
-    respond_to do |format|
-      format.html #interventions.html.erb
-      format.json {render json: @intervention}
-    end
   end
 
   # GET /interventions/1/edit
@@ -73,7 +69,6 @@ class InterventionsController < InheritedResources::Base
     end
 
     def intervention_params
-      params.require(:intervention).permit(:intervention_start, :intervention_stop, :result, :report, :status, :elevator_id)
+      params.require(:intervention).permit(:author, :intervention_start, :intervention_stop, :result, :report, :status, :elevator_id, :batteryID, :columnID, :elevator_id, :employeeID, :customerID, :buildingID)
     end
-
 end

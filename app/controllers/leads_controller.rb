@@ -37,10 +37,10 @@ class LeadsController < InheritedResources::Base
           
           # Mandatory:
   
-          config.url = "https://rocket-elevators-help.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
+          config.url = "https://wjacques.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
         
           # Basic / Token Authentication
-          config.username = "dimitrov.fabien@gmail.com/token"
+          config.username = "willy321@hotmail.com/token"
         
           # Choose one of the following depending on your authentication choice
           config.token = ENV['zendesk_key']

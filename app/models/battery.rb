@@ -6,5 +6,5 @@ class Battery < ApplicationRecord
         "#{id}"
     end
     belongs_to :customer
-    
+    has_many :interventions
 end

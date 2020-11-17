@@ -12493,6 +12493,11 @@ end
         statusresult = intervention_status[rand(0.2)]
     end
     elevator_id = rand(Elevator.first[:id]..Elevator.last[:id])
-    Intervention.create(intervention_start:intervention_start, intervention_stop: intervention_stop, result: results, report: reports, status: statusresult, elevator_id: elevator_id)
+    employee_id = rand(Employee.first[:id]..Employee.last[:id])
+    column_id = rand(Column.first[:id]..Column.last[:id])
+    battery_id = rand(Battery.first[:id]..Battery.last[:id])
+    customer_id = rand(Customer.first[:id]..Customer.last[:id])
+    building_id = rand(Building.first[:id]..Building.last[:id])
+    author = rand(Employee.first[:id]..Employee.last[:id])
+    Intervention.create(author:author,building_id:building_id,customer_id:customer_id,battery_id:battery_id,column_id:column_id,employee_id:employee_id,intervention_start:intervention_start, intervention_stop: intervention_stop, result: results, report: reports, status: statusresult, elevator_id: elevator_id)
 end
-

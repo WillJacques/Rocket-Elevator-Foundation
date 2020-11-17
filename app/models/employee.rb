@@ -4,7 +4,7 @@ class Employee < ApplicationRecord
         "#{first_name} #{last_name}"
     end
     belongs_to :admin_user
-
+    has_many :interventions
     has_many :customers
     def to_s
         "#{ID}"

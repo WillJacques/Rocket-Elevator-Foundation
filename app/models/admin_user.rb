@@ -8,6 +8,9 @@ class AdminUser < ApplicationRecord
   def display_name
     "#{email}"
   end
+  def display_id
+    "#{id}"
+  end
   has_many :customers
   def to_s
     "#{email}"

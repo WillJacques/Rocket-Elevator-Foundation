@@ -3,7 +3,7 @@ class Building < ApplicationRecord
     def to_s
         "#{address_of_the_building}"
     end
-
+    has_many :interventions
     belongs_to :customer
     has_one :building_detail
     def to_s

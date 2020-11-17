@@ -1,6 +1,7 @@
 class Customer < ApplicationRecord
     belongs_to :admin_user
     has_many :buildings
+    has_many :interventions
     def display_name
         "#{company_name}"
     end

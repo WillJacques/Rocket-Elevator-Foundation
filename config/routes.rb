@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :buildings
 
   resource :quotes
-  resource :interventions
+  resources :interventions
   resource :leads
 
   resource :employees
@@ -24,12 +24,13 @@ Rails.application.routes.draw do
 
   # GET routes
   get 'quote' => 'quotes#quote'
+  get 'intervention' => 'interventions#new'
   get 'corporate' => 'pages#corporate'
   get 'residential' => 'pages#residential'
   get 'index' => 'pages#index'
   get 'admin_root' => 'elevators#index'
   get 'googledcf02c3ead535472.html' => 'pages#googledcf02c3ead535472.html'
-  get 'intervention', to: 'interventions#new'
+ 
 
   # POST routes
 
