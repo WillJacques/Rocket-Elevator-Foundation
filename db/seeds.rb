@@ -12492,6 +12492,10 @@ end
     else
         statusresult = intervention_status[rand(0.2)]
     end
+    if statusresult == "Pending"
+        intervention_start = nil
+        intervention_stop = nil
+    end
     elevator_id = rand(Elevator.first[:id]..Elevator.last[:id])
     employee_id = rand(Employee.first[:id]..Employee.last[:id])
     column_id = rand(Column.first[:id]..Column.last[:id])
