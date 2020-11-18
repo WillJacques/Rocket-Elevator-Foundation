@@ -26,7 +26,7 @@ class Intervention < ApplicationRecord
         employeur = Employee.find_by admin_user_id: usernumber
         ZendeskAPI::Ticket.create!(client, :subject => "New Intervention", :comment => { :value => "
             
-        \n1- THE REQUESTER #{employeur.display_name}
+        \n1- THE REQUESTER #{employeur}
         \n2- THE CUSTOMER #{self.customer.company_name}
         \n3- THE BUILDING ID #{self.building_id}
         \n4- THE BATTERY ID #{self.battery_id}
