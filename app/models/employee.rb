@@ -7,6 +7,6 @@ class Employee < ApplicationRecord
     has_many :interventions
     has_many :customers
     def to_s
-        "#{ID}"
+        "#{id}"
     end
 end

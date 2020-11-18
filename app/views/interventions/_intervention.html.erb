@@ -93,14 +93,14 @@
 											<li class="dropdown"><a href="/#services">SERVICES</a></li>
 											<li class="dropdown"><a href="/residential">RESIDENTIAL</a></li>
 											<li class="dropdown"><a href="/corporative">CORPORATE & COMMERCIAL</a></li>
-											<li class="dropdown"><a href="quote">GET A QUOTE</a></li>
+											<li class="dropdown"><a href="/quote">GET A QUOTE</a></li>
 										</ul>
 									</li>
 									<li><a href="/#portfolio">PORTFOLIO</a></li>
 									<li><a href="/#news">NEWS</a></li>
 									<li><a href="/#clients">CLIENTS</a></li>
 									<li><a href="/#contact">CONTACT</a></li>
-									<li><a href="intervention">INTERVENTIONS</a></li>									
+									<li><a href="/intervention">INTERVENTIONS</a></li>									
 								</ul>
 							</nav>
 						</div>
@@ -129,7 +129,7 @@
 			<div class="container pt-30 pb-30" id="elevator-calculator">
 				<div class="row">
 					<div class="col-md-8">
-						<%= form_for @intervention do |f| %>
+						<%= form_with(model: intervention, local: true) do |f| %>
 							<% if intervention.errors.any? %>
 								<div id="error_explanation">
 								<h2><%= pluralize(intervention.errors.count, "error") %> prohibited this intervention from being saved:</h2>

@@ -330,6 +330,9 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    simple_form (5.0.3)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     sixarm_ruby_unaccent (1.2.0)
     slack-notifier (2.3.2)
     sort_alphabetical (1.1.0)
@@ -430,6 +433,7 @@ DEPENDENCIES
   rvm1-capistrano3
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_form
   slack-notifier
   spring
   spring-watcher-listen (~> 2.0.0)

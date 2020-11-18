@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_191724) do
+ActiveRecord::Schema.define(version: 2020_11_18_003911) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -110,6 +110,11 @@ ActiveRecord::Schema.define(version: 2020_11_17_191724) do
     t.index ["customer_id"], name: "index_columns_on_customer_id"
   end
 
+  create_table "current_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "customer_creation_date"
     t.string "company_name"
@@ -206,12 +211,12 @@ ActiveRecord::Schema.define(version: 2020_11_17_191724) do
     t.string "status", default: "Pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "elevator_id"
     t.integer "author", null: false
-    t.bigint "customer_id"
-    t.bigint "building_id"
     t.bigint "battery_id"
+    t.bigint "building_id"
     t.bigint "column_id"
+    t.bigint "customer_id"
+    t.bigint "elevator_id"
     t.bigint "employee_id"
     t.index ["battery_id"], name: "index_interventions_on_battery_id"
     t.index ["building_id"], name: "index_interventions_on_building_id"
@@ -264,5 +269,10 @@ ActiveRecord::Schema.define(version: 2020_11_17_191724) do
     t.index ["customer_id"], name: "index_quotes_on_customer_id"
   end
 
+  add_foreign_key "interventions", "batteries"
+  add_foreign_key "interventions", "buildings"
+  add_foreign_key "interventions", "columns"
+  add_foreign_key "interventions", "customers"
   add_foreign_key "interventions", "elevators"
+  add_foreign_key "interventions", "employees"
 end
