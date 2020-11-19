@@ -1,20 +1,47 @@
-	<!-- SLIDE TOP -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Rocket Elevators - Corporate</title>
+		<link rel="icon" href="Pictures/webicon.png">
+		<meta name="description" content="" />
+		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+
+		<!-- mobile settings -->
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	</head>
+		<body class="smoothscroll enable-animation">
+
+		<!-- SLIDE TOP -->
 		<div id="slidetop">
+
 			<div class="container">
-				
+			
 				<div class="row">
 
-					<div class="col-md-6">
-						<h6><i class="icon-heart"></i> WHY ROCKETELEVATORS?</h6>
-						<p>It's real simple: we're at the forefront of elevator technology and we always make it work.</p>
+					<div class="col-md-4">
+						<h6><i class="icon-heart"></i> Why Rocket Elevators?</h6>
+						<p> Because you deserve the best !! </p>
 					</div>
 
-					<div class="col-md-6">
+					<div class="col-md-4">
+						<h6><i class="fa-facheck"></i> Regions deserved :</h6>
+						<ul class="list-unstyled">
+							<li><i class="fa fa-angle-right"></i> Quebec City</li>
+							<li><i class="fa fa-angle-right"></i> Montreal </li>
+							<li><i class="fa fa-angle-right"></i> Tampa Bay (Coming Soon)</li>
+							<li><i class="fa fa-angle-right"></i> Philadelphia (Comming Soon)</li>
+							<li><i class="fa fa-angle-right"></i> New York (Coming Soon)</li>
+						</ul>
+					</div>
+
+					<div class="col-md-4">
 						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
 						<ul class="list-unstyled">
-							<li><b>Address:</b> <br/>4468 Wellington St Suite 204, Verdun, Quebec H4G 1W5</li>
-							<li><b>Phone:</b> <br/>(581) 701-0303</li>
-							<li><b>Email:</b> <a href="mailto:support@yourname.com">info@rocketelevators.biz</a></li>
+							<li><b>Address:</b> 418-725 Boulevard Lebourgneuf,  <br /> Québec, QC G2J 0C4, Canada</li>
+							<li><b>Phone:</b> (581) 701-0303</li>
+							<li><b>Email:</b> <a href="mailto:info@codebox.biz">info@codebox.biz</a></li>
 						</ul>
 					</div>
 
@@ -22,495 +49,273 @@
 
 			</div>
 
-			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
+			<a class="slidetop-toggle"><!-- toggle button --></a>
 
 		</div>
+		
 		<!-- /SLIDE TOP -->
+
 
 		<!-- wrapper -->
 		<div id="wrapper">
-		
+
+			<!-- HEADER -->
 			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
 
-				<!-- TOP NAV -->
 				<header id="topNav">
+
 					<div class="container">
 
-						<!-- Mobile Menu Button -->
 						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
 							<i class="fa fa-bars"></i>
 						</button>
 
-						<!-- Logo -->
-						<a class="logo float-left" href="index.html">
-							<%=image_tag("rocketelevatorassets/R2.png", alt:"client") %>
+						<a class="logo float-left" href="#top">
+							<img src="<%= asset_path('R2.png')%>" alt="" />
 						</a>
-
-						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+						
+						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-light">
 							<nav class="nav-main">
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
-									<li class="active"><!-- HOME -->
-										<a href="index.html">
-											HOME
-										</a>
-									</li>
-									<li><!-- SERVICES -->
-										<a href="index.html#services">
+									<li><a href="/#top">HOME</a></li>
+									<li >
+										<a class="dropdown-toggle">
 											SERVICES
 										</a>
-										<ul class="dropdown-menu white-space=nowrap">
-											<li><a href="residential.html">Residential</a></li>
-											<li><a href="quote.html">Get A Quote</a></li>
+										<ul class="dropdown-menu" style=white-space:nowrap;>
+											<li class="dropdown"><a href="/#services">SERVICES</a></li>
+											<li class="dropdown"><a href="/residential">RESIDENTIAL</a></li>
+											<li class="dropdown"><a href="/corporate">CORPORATE & COMMERCIAL</a></li>
+											<li class="dropdown"><a href="/quote">GET A QUOTE</a></li>
 										</ul>
 									</li>
-									<li><!-- WORK -->
-										<a href="index.html#work">
-											PORTFOLIO
-										</a>
-									</li>
-									<li><!-- NEWS -->
-										<a href="index.html#news">
-											NEWS
-										</a>
-									</li>
-									<li><!-- CLIENTS -->
-										<a href="index.html#clients">
-											CLIENTS
-										</a>
-									</li>
-									<li><!-- CONTACT -->
-										<a href="index.html#contact">
-											CONTACT
-										</a>
-									</li>
+									<li><a href="/#portfolio">PORTFOLIO</a></li>
+									<li><a href="/#news">NEWS</a></li>
+									<li><a href="/#clients">CLIENTS</a></li>
+									<li><a href="/#contact">CONTACT</a></li>
+									<li><a href="/intervention">INTERVENTIONS</a></li>
+									<% if current_admin_user%>
+										<li><%= link_to 'LOGOUT', destroy_admin_user_session_path, method: :delete %></li>
+										<% if current_admin_user.admin?%>
+										<li><a href="/admin">BACKOFFICE</a></li>
+										<% end %>
+									<% else %>
+										<li><%= link_to 'SIGNUP', new_admin_user_registration_path%></li>								
+										<li><%= link_to 'LOGIN', new_admin_user_session_path%></li>								
+									<% end %>													
 								</ul>
-
 							</nav>
 						</div>
-
 					</div>
 				</header>
-				<!-- /Top Nav -->
-
 			</div>
 
-			<!-- REVOLUTION SLIDER -->
-			<section id="slider" class="fullwidthbanner-container roundedcorners">
-			
-				<div class="fullscreenbanner" data-navigationStyle="preview2">
-					<ul class="hide">
+			<!-- Overview -->
+			<section id="overview">
+				<div class="container text-center">
 
-						<!-- SLIDE  -->
-						<li data-transition="parallaxtotop" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off" data-title="About">
+					<div class="row text-left">
 
-							<%= image_tag("rocketelevatorassets/corporate/skyline.jpg", :alt => "cover image" , :data => "center bottom cover no-repeat")%>
-							<div class="overlay dark-4"><!-- dark overlay [1 to 9 opacity] --></div>
+						<div class="col-sm-8">
+							<img class="img-fluid" src="<%= asset_path('AdobeStock_66781279.jpeg')%>" width="700" alt="product image" />
+						</div>
 
-							<div class="tp-caption customin ltl tp-resizeme text_white"
-								data-x="center"
-								data-y="180"
-								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-speed="800"
-								data-start="1000"
-								data-easing="easeOutQuad"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.01"
-								data-endelementdelay="0.1"
-								data-endspeed="1000"
-								data-endeasing="Power4.easeIn" style="z-index: 10; font-size: 50px">
-								<span class="fw-300">ELEVATE SPEED, SAFETY AND STYLE</span>
-							</div>
+						<div class="col-sm-4">
+							<h3 class="fw-300"><span>COMMERCIAL PRODUCTS</span></h3>
+						
+							<p>Everyone should be able to move freely in public places. Commercial elevators and wheelchair lifts can help ensure that all visitors to places of worship, schools, office buildings, medical and dental care clinics, cultural and recreational centres and more have the freedom to access all levels of these buildings.</p>
+							
+						</div>
+					</div>
+					<br>
+					<hr>
+					<br>
+					<div class="row text-left">
 
-							<div class="tp-caption customin ltl tp-resizeme large_bold_white"
-								data-x="center"
-								data-y="230"
-								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-speed="800"
-								data-start="1200"
-								data-easing="easeOutQuad"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.01"
-								data-endelementdelay="0.1"
-								data-endspeed="1000"
-								data-endeasing="Power4.easeIn" style="z-index: 10; font-size: 65px">
-								<span style="color: var(--rocketred);">ROCKET</span>
-								<span style="color: var(--rocketblue);">ELEVATORS</span>
-							</div>
+						
+						<div class="col-sm-4">
+							<h3 class="fw-300"><span>SKY'S THE LIMIT !!!</span></h3>
+						
+							<p>Your dreams are the only limit for your projects, feel free to talk with us about your needs and our engineers team will do the rest !</p>				
+							
+						</div>
+						
+						<div class="col-sm-8">
+							<img class="img-fluid" src="<%= asset_path('AdobeStock_162479912.jpeg')%>" width="700" alt="product image" />
+						</div> 
 
-							<div class="tp-caption customin ltl tp-resizeme small_light_white"
-								data-x="center"
-								data-y="350"
-								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-speed="800"
-								data-start="1400"
-								data-easing="easeOutQuad"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.01"
-								data-endelementdelay="0.1"
-								data-endspeed="1000"
-								data-endeasing="Power4.easeIn" style="z-index: 10; width: 750px; max-width: 750px; white-space: normal; text-align:center; font-size: 25px">
-								<p class="slider-text" style="line-height: 40px">Make your company or commerce stay ahead of the game with our state-of-the-art elevators.</p>
-							</div>
-							<div class="tp-caption customin ltl tp-resizeme small_light_white"
-								data-x="center"
-								data-y="440"
-								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-speed="800"
-								data-start="1400"
-								data-easing="easeOutQuad"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.01"
-								data-endelementdelay="0.1"
-								data-endspeed="1000"
-								data-endeasing="Power4.easeIn" style="z-index: 10; width: 750px; max-width: 750px; white-space: normal; text-align:center; font-size: 25px;">
-								<p class="slider-text" style="line-height: 40px">Whether you're a small start-up or a big corporate giant, we will fulfill your needs. Guaranteed.</p>
-							</div>
+					</div>
+					
+
+
+				</div>
+			</section>
+
+			<a href="/quotes/new" class="btn btn-xlg btn-primary fs-20 fullwidth m-0 rad-0 p-40 external">
+				<span class="font-lato fs-30">
+					Did Rocket Elevators convinced you? 
+					<strong> GET A QUOTE !! &raquo;</strong>
+				</span>
+			</a>
+		
+		<div id="wrapper2">
+			<section>
+				<div class="container">
+
+					<header class="text-center">
+						<h2 class="m-0">The Consultative Selling Framework</h2>
+						<hr>
+						<p class="font-lato fs-20 m-0">The Consultative Selling Framework provides sellers with a consistent, repeatable process to more effectively execute their sales conversations.</p>
+					</header>
+					
+					<div class="divider divider-center"><!-- divider -->
+						<i class="fa fa-chevron-down"></i>
+					</div>
+
+					<ul class="process-steps nav nav-tabs nav-justified mt-100">
+						<li class="nav-item active">
+							<a class="nav-link" href="#step1" data-toggle="tab">1</a>
+							<h5>Prepare</h5>
 						</li>
-
-						<!-- SLIDE -->
-						<li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off" data-title="How It Works">
-							<%= image_tag("rocketelevatorassets/corporate/elevator.jpg", :alt => "cover image", :data => "center center cover no-repeat")%>
-							<div class="overlay dark-4"><!-- dark overlay [1 to 9 opacity] --></div>
-
-							<div class="tp-caption customin ltl tp-resizeme text_white"
-								data-x="center"
-								data-y="190"
-								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-speed="800"
-								data-start="1000"
-								data-easing="easeOutQuad"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.01"
-								data-endelementdelay="0.1"
-								data-endspeed="1000"
-								data-endeasing="Power4.easeIn" style="z-index: 2;">
-								<span class="fw-300" style="font-size: 50px">HOW IT WORKS</span>
-							</div>
-
-							<div class="tp-caption customin ltl tp-resizeme large_bold_white"
-								data-x="center"
-								data-y="230"
-								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-speed="800"
-								data-start="1200"
-								data-easing="easeOutQuad"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.01"
-								data-endelementdelay="0.1"
-								data-endspeed="1000"
-								data-endeasing="Power4.easeIn" 
-								style="z-index: 4; font-size: 65px">
-								OUR CORPORATE&#8482; PLAN
-							</div>
-
-							<div class="tp-caption customin ltl tp-resizeme small_light_white"
-								data-x="center"
-								data-y="350"
-								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-speed="800"
-								data-start="1400"
-								data-easing="easeOutQuad"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.01"
-								data-endelementdelay="0.1"
-								data-endspeed="1000"
-								data-endeasing="Power4.easeIn"
-							    style="z-index: 3; width: 750px; max-width: 750px; white-space: normal; text-align:center; font-size: 25px">
-								<p class="slider-text" style="line-height: 40px">Over the course of many years of working passionately with our clients, we've perfected the technique of finding the solution which would best fit your needs of both elegance and safety.</p>
-							</div>
-
-							<div class="tp-caption customin ltl tp-resizeme small_light_white"
-								data-x="center"
-								data-y="520"
-								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-speed="800"
-								data-start="1400"
-								data-easing="easeOutQuad"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.01"
-								data-endelementdelay="0.1"
-								data-endspeed="1000"
-								data-endeasing="Power4.easeIn" 
-								style="z-index: 3; width: 750px; max-width: 750px; white-space: normal; text-align:center; font-size: 25px">
-								<p class="slider-text" style="line-height: 40px">We'll ask you to provide us with a few simple details about the building or commercial area, and we'll take care of the rest - the cost estimate and the final product itself - so you won't have to worry about anything.</p>
-							</div>
-
-							<div class="tp-caption customin ltl tp-resizeme"
-								data-x="center"
-								data-y="680"
-								data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-								data-speed="800"
-								data-start="1550"
-								data-easing="easeOutQuad"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.01"
-								data-endelementdelay="0.1"
-								data-endspeed="1000"
-								data-endeasing="Power4.easeIn" style="z-index: 3;"
-								style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
-								<a class="btn btn-default btn-lg slider-btn" href="quote.html">GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i></a>
-							</div>
+						<li class="nav-item">
+							<a class="nav-link" href="#step2" data-toggle="tab">2</a>
+							<h5>Connect</h5>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#step3" data-toggle="tab">3</a>
+							<h5>Understand</h5>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#step4" data-toggle="tab">4</a>
+							<h5>Recommend</h5>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#step5" data-toggle="tab">5</a>
+							<h5>Commit</h5>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#step6" data-toggle="tab">6</a>
+							<h5>Act</h5>
 						</li>
 					</ul>
-				</div>
-			</section>
-			<!-- /REVOLUTION SLIDER -->
 
-			<!-- Welcome -->
-			<section>
-				<div class="container">
-
-					<div class="text-center">
-						<h1>We're glad you've shown interest in our Corporate&#8482; Plan!</h1>
-						<h2 class="col-sm-10 offset-sm-1 fw-400 mb-0">Before you request a quote, here's some info on how the cost estimation process will work.</h2>
-					</div>
-
-					<div class="row mt-50">
-						<div class="col-sm-4">
-							<a class="image-hover lightbox" href="rocketelevatorassets/corporate/1.jpg" data-plugin-options='{"type":"iframe"}'>
-								<span class="image-hover-icon image-hover-dark">
-									<i></i>
-								</span>
-								<%= image_tag("rocketelevatorassets/corporate/1.jpg", class:"img-fluid", alt:"img") %>
-							</a>
-
-							<h3 class="mt-10">Building Type</h3>
-							<p>We'll ask you to specify the type of the building. For your situation, it will either be Corporate, Commercial or Hybrid.</p>
+					<div class="tab-content mt-30">
+						<div class="tab-pane active" id="step1">
+							Effective call planning leads to more productive customer meetings, increased credibility, a shortened sales cycle, and increased sales results. Using an efficient methodology for call planning helps ensure that each customer call advances the sale.
 						</div>
 
-						<div class="col-sm-4">
-							<a class="image-hover lightbox" href="rocketelevatorassets/corporate/2.jpg" data-plugin-options='{"type":"iframe"}'>
-								<span class="image-hover-icon image-hover-dark">
-									<i></i>
-								</span>
-
-								<%= image_tag("rocketelevatorassets/corporate/2.jpg", alt:"img", class:"img-fluid") %>
-							</a>
-							<h3 class="mt-10">Building Specifics</h3>
-							<p>We may ask you to specify certain aspects depending on the building type, such as number of floors or occupants.</p>
+						<div class="tab-pane" id="step2">
+							The connect phase of the sales call opens the meeting, creates an impression, and sets the tone. A strong opening helps build credibility.
 						</div>
 
-						<div class="col-sm-4">
-							<a class="image-hover lightbox" href="rocketelevatorassets/corporate/3.jpg" data-plugin-options='{"type":"iframe"}'>
-								<span class="image-hover-icon image-hover-dark">
-									<i></i>
-								</span>
-								<%= image_tag("rocketelevatorassets/corporate/3.jpg", alt:"img", class: "img-fluid") %>
-							</a>
-							<h3 class="mt-10">Cost Calculation</h3>
-							<p>Our software will calculate, in real time, the estimated cost of the project depending on your specifications.</p>
+						<div class="tab-pane" id="step3">
+							Understanding is at the heart of consultative selling. Sales professionals need to connect with customers, gain and keep their openness and willingness to engage in a dialogue, and ask a full range of questions.
 						</div>
 
-					</div>
-
-					<div class="justify-content-center text-center mt-80" style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
-						<a class="btn btn-default btn-lg altquotebtn" style="width: 100%" href="quote.html">GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i></a>
-					</div>
-				</div>
-			</section>
-			<!-- /Welcome -->
-
-			<!-- Services -->
-			<section>
-				<div class="container">
-
-					<div class="text-center">
-						<h2 class="col-sm-10 offset-sm-1 fw-400 mb-0">WHAT YOU GET WITH US</h2>
-					</div>
-
-					<div class="row mt-50">
-
-						<div class="col-sm-6 col-md-4 col-lg-4">
-
-							<div class="box-icon box-icon-left">
-								<a class="box-icon-title" href="#">
-									<i class="et-layers"></i>
-									<h2>3D DIGITAL PREVIEW</h2>
-								</a>
-								<p class="text-muted">We'll provide you with a fully comprehensive 3D digital preview sketch of the to-be final product, which you'll be able to view and keep forever. </p>
-							</div>
+						<div class="tab-pane" id="step4">
+							The way a sales professional positions a specific solution can make it easy or difficult for the customer to understand. It can also make the sales professional sound compelling or boring. To be persuasive, sales professionals need to describe capabilities and solutions using clear, concise, and compelling messaging that links value to customer needs.
 						</div>
 
-						<div class="col-sm-6 col-md-4 col-lg-4">
-
-							<div class="box-icon box-icon-left">
-								<a class="box-icon-title" href="#">
-									<i class="et-briefcase"></i>
-									<h2>REAL EXPERTISE</h2>
-								</a>
-								<p class="text-muted">We'll pair you up with a team of dedicated & experienced architects, engineers and artists to get to the completion of your project that much faster.</p>
-							</div>
-
+						<div class="tab-pane" id="step5">
+							Treating closing like a process lowers the risk of rejection and increases the likelihood of gaining commitment and winning the business.
 						</div>
 
-						<div class="col-sm-6 col-md-4 col-lg-4">
-
-							<div class="box-icon box-icon-left">
-								<a class="box-icon-title" href="#">
-									<i class="et-megaphone"></i>
-									<h2>FLEXIBILITY</h2>
-								</a>
-								<p class="text-muted">If you change your mind about something or want to outright cancel the project, there will be no fees if a request is made within 7 days.</p>
-							</div>
-
-						</div>
-
-						<div class="col-sm-6 col-md-4 col-lg-4">
-
-							<div class="box-icon box-icon-left">
-								<a class="box-icon-title" href="#">
-									<i class="fa fa-tablet"></i>
-									<h2>24/7 SUPPORT</h2>
-								</a>
-								<p class="text-muted">We will hook you up with a private team of advisors whom will be available 24/7 to answer any of your potential questions & concerns about your project.</p>
-							</div>
-
-						</div>
-
-						<div class="col-sm-6 col-md-4 col-lg-4">
-
-							<div class="box-icon box-icon-left">
-								<a class="box-icon-title" href="#">
-									<i class="et-flag"></i>
-									<h2>REGULAR UPDATES</h2>
-								</a>
-								<p class="text-muted">Our team will provide you with daily updates on the project, so you can follow the progress from your office or from home.</p>
-							</div>
-
-						</div>
-
-						<div class="col-sm-6 col-md-4 col-lg-4">
-
-							<div class="box-icon box-icon-left">
-								<a class="box-icon-title" href="#">
-									<i class="et-basket"></i>
-									<h2>TIME GUARANTEE</h2>
-								</a>
-								<p class="text-muted">Because we know time is of the essence for big and small companies alike, we guarantee we will have your project done in under 4 weeks. Else, we'll refund you 25% of the cost!</p>
-							</div>
-
+						<div class="tab-pane" id="step6">
+							Flawless follow-up with the customer is one of the fastest ways sales professionals can build credibility and differentiate themselves because many sales professionals are not strong in following up. Internal reflection and action planning after the call is necessary to ensure that each customer interaction is fully leveraged in order to learn and plan an appropriate action to win.
 						</div>
 					</div>
 
 				</div>
 			</section>
-			<!-- /Services -->
 
 			<!-- PARALLAX -->
-			<section class="parallax parallax-2 section-xs" style="background-image: url('/assets/rocketelevatorassets/wall.jpg');">
-				<div class="overlay dark-4"><!-- dark overlay [0 to 9 opacity] --></div>
+			<section class="parallax parallax-2" style="background-image: url('/assets/AdobeStock_162479912.jpeg')">
+				<div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
 
-				<div class="container">
+				<div class="container text-center">
 
-					<div class="text-center">
-						<h3 class="m-0">Trusted And Reputable</h3>
-						<p class="font-lato fw-300 lead mt-0">We've already helped dozens of other corporate clients of varying sizes - let us help you next.</p>
-					</div>
-					
-					<div class="mt-80 text-center">
-						<!-- <%= image_tag("rocketelevatorassets/corporate/overview.png", alt:"img", class:"img-fluid") %> -->
-					</div>
-					
+					<h2 class="font-raleway mb-10">
+						<span class="countTo" data-speed="3000">406</span> clients
+					</h2>
+
+					<h3 class="fs-25">They're <span>satisfied</span>. We're <span>happy</span>!</h3>
+
 				</div>
 
 			</section>
 			<!-- /PARALLAX -->
 
-			<!-- Info -->
 			<section>
 				<div class="container">
-
+				
 					<div class="row">
 
-						<div class="col-md-8 col-sm-8">
-							<h2>Visit Us</h2>
+						<div class="col-md-6 col-sm-6">
+							<header class="mb-60">
+								<h2 class="m-0">Commercial Division Type</h2>
+								<p class="font-lato fs-20 m-0">We work on many project type</p>
+							</header>
 
-							<div id="map2" class="h-400">
-								<iframe width="589" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=589&amp;height=400&amp;hl=en&amp;q=4468%20Wellington%20St,%20Verdun,%20Quebec%20H4G%201W5%20Montreal+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> 
-							</div>
+							<p>Through all these years, we had many great opportunities to work with great entrepreneur from all commercial divisions :</p>
 
-							<hr />
+							<a href="/quotes/new">
 
-							<p>
-								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 4468 Wellington St Suite 204, Verdun, Quebec H4G 1W5</span>
-								<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1800-555-1234">(581) 701-0303</a></span>
-								<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:mail@yourdomain.com">info@rocketelevators.biz</a></span>
-							</p>
+								<!-- /word rotator -->
+								<span class="fs-16" data-delay="2000">
+									<span class="items">
+										<span>GET A QUOTE !</span>
+									</span>
+								</span><!-- /word rotator -->
+								<i class="glyphicon glyphicon-menu-right fs-12"></i>
+							</a>
 						</div>
 
-						<div class="col-md-4 col-sm-4 my-auto">
-
-							<h3 class="fw-300 text-center">Any business, corporation or commercial entity is welcome to apply. We guarantee we'll make it worth your money and time.</h3>
-
-							<a class="btn btn-default btn-lg mt-30 btn-to-contact" style="width: 100%" href="index.html#contact">CONTACT US</a>
+						<div class="col-md-6 col-sm-6">
+							<p class="fs-16">Number of clients on each divisions :</p>
+							<canvas class="chartjs" id="barChartCanvas" width="547" height="300"></canvas>
 						</div>
 
 					</div>
 
 				</div>
+
 			</section>
-			<!-- /Info -->
 
-			<!-- CALLOUT -->
-			<div class="alert alert-transparent bordered-bottom m-0">
-				<div class="container">
+		</div>
 
-					<div class="row">
 
-						<div class="col-md-8 col-sm-12"><!-- left text -->
-							<h3>Call now at <span><strong>+ (581)-701-0303</strong></span> or request a quote to get started!</h3>
-							<p class="font-lato fw-300 fs-20 mb-0">
-								We'll make it right because we truly care about our esteemed clients.
-							</p>
-						</div><!-- /left text -->
+			<!-- /Overview -->
 
-						<!-- right btn -->
-						<div class="col-md-2 col-sm-6 text-right"style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
-							<a class="btn btn-default btn-lg altquotebtn-v2" href="#">GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i></a>
-						</div>
-						<!-- /right btn -->
-						<!-- right btn -->
-						<div class="col-md-2 col-sm-6 text-right"style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
-							<a class="btn btn-default btn-lg altquotebtn-v2" href="index.html">BACK TO MAIN PAGE &nbsp; <i class="fa fa-angle-right"></i></a>
-						</div>
-						<!-- /right btn -->
-
-					</div>
-
-				</div>
-			</div>
-			<!-- /CALLOUT -->
-
+			<a href="/quotes/new" class="btn btn-xlg btn-primary fs-20 fullwidth m-0 rad-0 p-40 external">
+				<span class="font-lato fs-30">
+					Did Rocket Elevators convinced you? 
+					<strong> GET A QUOTE !! &raquo;</strong>
+				</span>
+			</a>
+			
 			<!-- FOOTER -->
-			<footer id="footer">
-				<div class="container">
+			<footer id="footer" style="background-image: url('/assets/particles_bg.jpg')">
+
+				<div class="container" >@import bootstrap-sprockets 
 
 					<div class="row">
 
 						<!-- col #1 -->
-						<div class="col-md-8">
+						<div class="col-md-6">
 
 							<h3 class="letter-spacing-1">WHY US?</h3>
 
 							<!-- Small Description -->
 							<p>
-								It's real simple: we're at the forefront of elevator technology and we always make it work. 
+								Because we're simply the best !
 							</p>
+							
 							<h2>(581) 701-0303</h2>
 						</div>
 						<!-- /col #1 -->
 
 						<!-- col #2 -->
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
 
 							<!-- Newsletter Form -->
@@ -521,32 +326,33 @@
 									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
 									<span class="input-group-btn">
-										<button class="btn btn-success" type="submit">Subscribe</button>
+										<button class="btn btn-blue" type="submit">Subscribe</button>
 									</span>
 								</div>
 							</form>
 							<!-- /Newsletter Form -->
 
+
 						</div>
 						<!-- /col #2 -->
-						
+
 					</div>
+
 
 				</div>
 
 				<div class="copyright">
 					<div class="container">
 						<ul class="float-right m-0 list-inline mobile-block">
-							<li><a href="#">Terms &amp; Conditions</a></li>
+							<li>Terms &amp; Conditions</li>
 							<li>&bull;</li>
-							<li><a href="#">Privacy</a></li>
+							<li>Privacy</li>
 						</ul>
-						&copy; All Rights Reserved, RocketElevators&trade;
+						&copy; All Rights Reserved, Company LTD
 					</div>
 				</div>
 
-			</footer>
-			<!-- /FOOTER -->
+			</footer>	
 
 		</div>
 		<!-- /wrapper -->
@@ -554,3 +360,30 @@
 		<!-- SCROLL TO TOP -->
 		<a href="#" id="toTop"></a>
 
+		<!-- PAGE LEVEL SCRIPTS [cart js] -->
+		<script>
+			jQuery(window).on('load', function() {
+				loadScript('assets/Chart.min.js', function() {
+
+					var barChartCanvas = {
+						labels:["Office","Education","Lodging","Healthcare","Service","Others"],
+						datasets:[
+							{
+								fillColor : "#1980B620",
+								strokeColor : "rgba(220,220,220,0.8)",
+								highlightFill: "#bb102420",
+								highlightStroke: "rgba(220,220,220,1)",
+								data : [65,59,90,81,56,55]
+							}
+						]
+					};
+
+					var ctx = document.getElementById("barChartCanvas").getContext("2d");
+					new Chart(ctx).Bar(barChartCanvas);
+
+				});
+
+			});
+		</script>
+	</body>
+</html>

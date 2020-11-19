@@ -1,23 +1,52 @@
-<head>
-	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</head>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta property="og:image" content="Pictures\M.jpg" />
+		<meta property="og:description" content="Best elevator compagny !" />
+		<meta property="og:url"content="http://wjacques.tech" />
+		<meta property="og:title" content="Rocket Elevator" />
+		<meta charset="utf-8" />
+		<title>Rocket Elevators - Homepage</title>
+		<%= favicon_link_tag 'webicon.png' %>
+		<meta name="description" content="" />
+		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		
+		<!-- mobile settings -->
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	</head>
+		<body class="smoothscroll enable-animation">
+
 		<!-- SLIDE TOP -->
 		<div id="slidetop">
+
 			<div class="container">
-				
+			
 				<div class="row">
 
-					<div class="col-md-6">
-						<h6><i class="icon-heart"></i> WHY ROCKETELEVATORS?</h6>
-						<p>It's real simple: we're at the forefront of elevator technology and we always make it work.</p>
+					<div class="col-md-4">
+						<h6><i class="icon-heart"></i> Why Rocket Elevators?</h6>
+						<p> Because you deserve the best !! </p>
 					</div>
 
-					<div class="col-md-6">
+					<div class="col-md-4">
+						<h6><i class="fa-facheck"></i> Regions deserved :</h6>
+						<ul class="list-unstyled">
+							<li><i class="fa fa-angle-right"></i> Quebec City</li>
+							<li><i class="fa fa-angle-right"></i> Montreal </li>
+							<li><i class="fa fa-angle-right"></i> Tampa Bay (Coming Soon)</li>
+							<li><i class="fa fa-angle-right"></i> Philadelphia (Comming Soon)</li>
+							<li><i class="fa fa-angle-right"></i> New York (Coming Soon)</li>
+						</ul>
+					</div>
+
+					<div class="col-md-4">
 						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
 						<ul class="list-unstyled">
-							<li><b>Address:</b> <br/>4468 Wellington St Suite 204, Verdun, Quebec H4G 1W5</li>
-							<li><b>Phone:</b> <br/>(581) 701-0303</li>
-							<li><b>Email:</b> <a href="mailto:support@yourname.com">info@rocketelevators.biz</a></li>
+							<li><b>Address:</b> 418-725 Boulevard Lebourgneuf,  <br /> Québec, QC G2J 0C4, Canada</li>
+							<li><b>Phone:</b> (581) 701-0303</li>
+							<li><b>Email:</b> <a href="mailto:info@codebox.biz">info@codebox.biz</a></li>
 						</ul>
 					</div>
 
@@ -25,212 +54,135 @@
 
 			</div>
 
-			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
+			<a class="slidetop-toggle"><!-- toggle button --></a>
 
 		</div>
+		
 		<!-- /SLIDE TOP -->
+
 
 		<!-- wrapper -->
 		<div id="wrapper">
 
+			<!-- HEADER -->
 			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
 
-				<!-- TOP NAV -->
 				<header id="topNav">
+
 					<div class="container">
 
-						<!-- Mobile Menu Button -->
 						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
 							<i class="fa fa-bars"></i>
 						</button>
 
-						<!-- Logo -->
-						<a class="logo float-left scrollTo" href="#top">
-                            <%= image_tag("rocketelevatorassets/R2.png")%>
+						<a class="logo float-left" href="#top">
+							<img src="<%= asset_path('R2.png')%>" alt="" />
 						</a>
-
-						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+						
+						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-light">
 							<nav class="nav-main">
-
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
-									<li><a href="#home">HOME</a></li>
-									<li><a href="#services" class="dropdown-toggle">SERVICES</a>
-										<ul class="dropdown-menu white-space=nowrap">
-											<li><a href="residential.html">Residential</a></li>
-											<li><a href="corporate.html">Corporate & Commercial</a></li>
-											<li><a href="/quote.html">Get A Quote</a></li>
+									<li><a href="/#top">HOME</a></li>
+									<li >
+										<a class="dropdown-toggle">
+											SERVICES
+										</a>
+										<ul class="dropdown-menu" style=white-space:nowrap;>
+											<li class="dropdown"><a href="/#services">SERVICES</a></li>
+											<li class="dropdown"><a href="/residential">RESIDENTIAL</a></li>
+											<li class="dropdown"><a href="/corporate">CORPORATE & COMMERCIAL</a></li>
+											<li class="dropdown"><a href="/quote">GET A QUOTE</a></li>
 										</ul>
 									</li>
-									<li><a href="#work">PORTFOLIO</a></li>
-									<li><a href="#news">NEWS</a></li>
-									<li><a href="#clients">CLIENTS</a></li>
-									<li><a href="#contact">CONTACT</a></li>
-									<li><a href="/intervention">INTERVENTIONS</a>
-									</li>
+									<li><a href="/#portfolio">PORTFOLIO</a></li>
+									<li><a href="/#news">NEWS</a></li>
+									<li><a href="/#clients">CLIENTS</a></li>
+									<li><a href="/#contact">CONTACT</a></li>
+									<li><a href="/intervention">INTERVENTIONS</a></li>
+									<% if current_admin_user%>
+										<li><%= link_to 'LOGOUT', destroy_admin_user_session_path, method: :delete %></li>
+										<% if current_admin_user.admin?%>
+										<li><a href="/admin">BACKOFFICE</a></li>
+										<% end %>
+									<% else %>
+										<li><%= link_to 'SIGNUP', new_admin_user_registration_path%></li>								
+										<li><%= link_to 'LOGIN', new_admin_user_session_path%></li>								
+									<% end %>													
 								</ul>
-
 							</nav>
 						</div>
-
 					</div>
 				</header>
-				<!-- /Top Nav -->
-
 			</div>
 
 			<!-- REVOLUTION SLIDER -->
 			<div class="slider fullwidthbanner-container roundedcorners">
-			
-				<div id="home" class="fullwidthbanner" data-height="700" data-shadow="0" data-navigationStyle="preview2">
+				
+				<div class="fullwidthbanner" data-height="600" data-shadow="0" data-navigationStyle="preview2">
 					<ul class="hide">
 					
 						<!-- SLIDE  -->
-						<li data-transition="parallaxtobottom slider" data-slotamount="7" data-masterspeed="600"  data-saveperformance="off"  data-title="About Us">
+						<li data-transition="slide overlay to right" data-slotamount="7" data-masterspeed="600" data-saveperformance="off"  data-title="Slogan">
 							<!-- MAIN IMAGE -->
-							<%= image_tag("demo_files/images/mdl-blue-min.jpg", :alt => "cover image" , :data => "center top cover no-repeat")%>
-
-							<div class="tp-caption white_big skewfromleft tp-resizeme"
-								data-x="300"
-								data-y="100" 
-								data-speed="400"
-								data-start="1500"
-								data-easing="Power3.easeInOut"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.1"
-								data-endelementdelay="0.1"
-								data-endspeed="600"
-								style="z-index: 2; font-size: 65px; color:#fff; line-height:85px; font-weight:bold; letter-spacing:0; text-transform: uppercase; text-shadow:none">
-									Elevate <br /> 
-									<i class="slogan-keyword">Safety</i>, 
-									<i class="slogan-keyword">Speed</i> and 
-									<i class="slogan-keyword">Style</i>
-							</div>
-
-							<div class="tp-caption content_text_center skewfromleft tp-resizeme"
-								data-x="300"
-								data-y="300" 
-								data-speed="500"
-								data-start="2000"
-								data-easing="Power3.easeInOut"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.1"
-								data-endelementdelay="0.1"
-								data-endspeed="600"
-
-								style="z-index: 3; font-size: 35px; color:#fff; font-weight:300; text-shadow:none; text-align: left; width: 80%">
-									<p class="slider-text" style="line-height: 40px">
-										Canada's leading company in elevator innovation & installation.<br />
-										We're here for you, no matter your budget and needs.
-									</p>
-							</div>
-
-							<div class="tp-caption tp-fade"
-								data-x="-50"
-								data-y="125" 
-								data-speed="300"
-								data-start="800"
-								data-easing="Power3.easeInOut"
-								data-elementdelay="0.1"
-								data-endelementdelay="0.1"
-								data-endspeed="300"
-								style="z-index: 4;">
-									<%= image_tag("demo_files/images/thematics/construction/worker-min.png", alt:"")%>
-							</div>
-							<div class="tp-caption skewfromleft tp-resizeme"
-								data-x="300"
-								data-y="450" 
-								data-speed="300"
-								data-start="2500"
-								data-easing="Power3.easeInOut"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.1"
-								data-endelementdelay="0.1"
-								data-endspeed="300"
-
-								style="z-index: 5; white-space: nowrap;">
-									<a class="btn btn-warning btn-lg slider-btn" href="#services">OUR SERVICES &nbsp; <i class="fa fa-angle-right"></i></a>
-							</div>
-							<div class="tp-caption sfb tp-resizeme"
-							data-x="500"
-							data-y="450" 
-							data-speed="500"
-							data-start="3000"
-							data-easing="Power3.easeInOut"
-							data-splitin="none"
-							data-splitout="none"
-							data-elementdelay="0.1"
-							data-endelementdelay="0.1"
-							data-endspeed="300"
-							style="z-index: 6; white-space: nowrap;">
-								<a class="btn btn-default btn-lg slider-btn" href="quote.html">GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i></a>
-							</div>
-						</li>
-						<!-- SLIDE  -->
-						<li data-transition="parallaxtotop slider" data-slotamount="7" data-masterspeed="300"  data-saveperformance="off" data-title="Residential">
-							<!-- MAIN IMAGE -->
-							<%= image_tag("rocketelevatorassets/AdobeStock_122227340.jpeg", :alt => "cover image" , :data => "center top cover no-repeat")%>
+							<img src="<%= asset_path('AdobeStock_122227340.jpeg')%>"  alt="cover image"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+							
+							<div class="overlay dark-4"><!-- dark overlay [0 to 9 opacity] --></div>
 
 							<div class="tp-caption font-roboto skewfromleft tp-resizeme"
 								data-x="50"
 								data-y="100" 
-								data-speed="500"
+								data-speed="400"
 								data-start="1500"
 								data-easing="Cubic.easeOut"
 								data-splitin="none"
 								data-splitout="none"
 								data-elementdelay="0.1"
 								data-endelementdelay="0.1"
-								data-endspeed="500"
+								data-endspeed="600"
 								style="z-index: 2; color:#fff; font-size:65px; line-height:85px; font-weight:bold; letter-spacing:0; text-shadow:none;">
-									Our Residential&#8482; Plans
-							</div>
-
-							<div class="tp-caption skewfromrightshort tp-"
-								data-x="50"
-								data-y="380" 
-								data-speed="500"
-								data-start="1000"
-								data-easing="easeInCirc"
-								data-splitin="none"
-								data-splitout="none"
-								data-elementdelay="0.1"
-								data-endelementdelay="0.1"
-								data-endspeed="500"
-								style="z-index: 3; font-size:35px; color:#fff; font-weight:300; text-shadow:none;">
-									<p class="slider-text" style="line-height: 40px">
-										Need a highly functional low-maintenance elavator for your residents?<br />
-										We've got you covered. From affordable options to high-end luxurious options,<br />
-										you ultimately decide what's best for you and your budget.
-									</p>
+									With Rocket Elevators :<br> 
+									<hr>
+									Sky's the limit !
 							</div>
 
 							<div class="tp-caption sfb tp-resizeme"
 								data-x="50"
-								data-y="600" 
+								data-y="410" 
 								data-speed="500"
 								data-start="1500"
-								data-easing="Power3.easeIn"
+								data-easing="Cubic.easeOut"
 								data-splitin="none"
 								data-splitout="none"
 								data-elementdelay="1"
 								data-endelementdelay="0.1"
 								data-endspeed="500"
-								style="z-index: 4;">
-								<a class="btn btn-warning btn-lg slider-btn" href="residential.html">LEARN MORE &nbsp; <i class="fa fa-angle-right"></i></a>
+								style="z-index: 4; max-width: auto;">
+									<a class="btn btn-red btn-block" style= "font-size:16px;display: table-cell; vertical-align: middle" href="#services">OUR SERVICES &nbsp; <i class="fa fa-angle-right"></i></a>
+							</div>
+
+							<div class="tp-caption sfb tp-resizeme"
+								data-x="250"
+								data-y="410" 
+								data-speed="500"
+								data-start="1500"
+								data-easing="Cubic.easeOut"
+								data-splitin="none"
+								data-splitout="none"
+								data-elementdelay="1"
+								data-endelementdelay="0.1"
+								data-endspeed="500"
+								style="z-index: 4; max-width: auto;">
+									<a class="btn btn-red btn-block" style= "font-size:16px;display: table-cell; vertical-align: middle" href="/quotes/new">GET A QUOTE &nbsp; <i class="fa fa-angle-right"></i></a>
 							</div>
 						</li>
 
 						<!-- SLIDE  -->
-						<li data-transition="parallaxtotop" data-slotamount="7" data-masterspeed="300"  data-saveperformance="off" data-title="Corporate">
+						<li data-transition="slide overlay to right" data-slotamount="7" data-masterspeed="300" data-saveperformance="off" data-title="Residential">
 							<!-- MAIN IMAGE -->
+							<img src="<%= asset_path('AdobeStock_72034307.jpeg')%>" alt="cover image"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 
-							<%= image_tag("rocketelevatorassets/AdobeStock_146216308v2.jpeg", :alt => "cover image" , :data => "center top cover no-repeat")%>
-						
 							<div class="overlay dark-4"><!-- dark overlay [0 to 9 opacity] --></div>
-						
+
 							<div class="tp-caption font-roboto skewfromleft tp-resizeme"
 								data-x="50"
 								data-y="100" 
@@ -243,12 +195,13 @@
 								data-endelementdelay="0.1"
 								data-endspeed="500"
 								style="z-index: 2; color:#fff; font-size:65px; line-height:85px; font-weight:bold; letter-spacing:0; text-shadow:none;">
-									Our Corporate&#8482; Plans
+									We offer you:<br>
+									Residential Services
 							</div>
 
 							<div class="tp-caption skewfromrightshort tp-resizeme"
 								data-x="50"
-								data-y="380" 
+								data-y="300" 
 								data-speed="500"
 								data-start="1000"
 								data-easing="easeInCirc"
@@ -257,17 +210,13 @@
 								data-elementdelay="0.1"
 								data-endelementdelay="0.1"
 								data-endspeed="500"
-								style="z-index: 3; font-size:35px; color:#fff; font-weight:300; text-shadow:none;">
-									<p class="slider-text" style="line-height: 40px">
-										Make your company or commerce stay ahead of the game with our <br />
-										state-of-the-art elevators. Whether you're a small start-up or <br />
-										big corporate giant, we will fulfill your needs. Guaranteed.
-									</p>
+								style="z-index: 3; font-size:20px; color:#fff; font-weight:300; text-shadow:none;">
+									Great solution for wheelchair user ! ...Or laziness...
 							</div>
 
 							<div class="tp-caption sfb tp-resizeme"
 								data-x="50"
-								data-y="600" 
+								data-y="410" 
 								data-speed="500"
 								data-start="1500"
 								data-easing="Power3.easeIn"
@@ -276,26 +225,83 @@
 								data-elementdelay="1"
 								data-endelementdelay="0.1"
 								data-endspeed="500"
-								style="z-index: 4;">
-									<a class="btn btn-warning btn-lg slider-btn" href="corporate.html">LEARN MORE &nbsp; <i class="fa fa-angle-right"></i></a>
+								style="z-index: 4; max-width: auto;">
+									<a class="btn btn-red btn-block" style= "font-size:16px;display: table-cell; vertical-align: middle" href="/residential">RESIDENTIAL SERVICES &nbsp; <i class="fa fa-angle-right"></i></a>
 							</div>
+
 						</li>
-					
+
+						<!-- SLIDE  -->
+						<li data-transition="slide overlay to right" data-slotamount="7" data-masterspeed="300" data-saveperformance="off" data-title="Corporate">
+							<!-- MAIN IMAGE -->
+							<img src="<%= asset_path('AdobeStock_66781279.jpeg')%>" alt="cover image"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+							<div class="overlay dark-4"><!-- dark overlay [0 to 9 opacity] --></div>
+
+							<div class="tp-caption font-roboto skewfromleft tp-resizeme"
+								data-x="50"
+								data-y="100" 
+								data-speed="500"
+								data-start="1500"
+								data-easing="Cubic.easeOut"
+								data-splitin="none"
+								data-splitout="none"
+								data-elementdelay="0.1"
+								data-endelementdelay="0.1"
+								data-endspeed="500"
+								style="z-index: 2; color:#fff; font-size:65px; line-height:85px; font-weight:bold; letter-spacing:0; text-shadow:none;">
+								And also: <br />
+								Corporate Services
+							</div>
+
+							<div class="tp-caption skewfromrightshort tp-resizeme"
+								data-x="50"
+								data-y="300" 
+								data-speed="500"
+								data-start="1000"
+								data-easing="easeInCirc"
+								data-splitin="none"
+								data-splitout="none"
+								data-elementdelay="0.1"
+								data-endelementdelay="0.1"
+								data-endspeed="500"
+								style="z-index: 3; font-size:20px; color:#fff; font-weight:300; text-shadow:none;">
+									Because time is money and you don't want sweaty workers !
+							</div>
+
+							<div class="tp-caption sfb tp-resizeme"
+								data-x="50"
+								data-y="410" 
+								data-speed="500"
+								data-start="1500"
+								data-easing="Power3.easeIn"
+								data-splitin="none"
+								data-splitout="none"
+								data-elementdelay="1"
+								data-endelementdelay="0.1"
+								data-endspeed="500"
+								style="z-index: 4; max-width: auto">
+									<a class="btn btn-red btn-block" style= "font-size:16px;display: table-cell; vertical-align: middle" href="/corporative">CORPORATE SERVICES &nbsp;<i class="fa fa-angle-right"></i></a>
+							</div>
+
+						</li>
+
 					</ul>
 
 				</div>
 			</div>
 			<!-- /REVOLUTION SLIDER -->
 
-			<!-- BUTTON CALLOUT -->
-			<div class="fs-40 fullwidth m-0 rad-0 p-40 callout" style="background-color: var(--rocketblue); text-align: center;">
-				<span style="margin-bottom: 90px; color: white">
-				Have any questions or concerns?<br /> 
-				</span>
-				<a class="btn btn-default btn-lg m-11" href="#contact">CONTACT US &nbsp; <i class="fa fa-angle-right"></i></a>
+			<hr class="m-0" /><!-- 1px line separator -->
 
-			</div>
-			<!-- /BUTTON CALLOUT -->
+			<!-- BUTTON CALLOUT -->
+			<a href="/quotes/new" class="btn btn-xlg btn-primary fs-20 fullwidth m-0 rad-0 p-40 external">
+				<span class="font-lato fs-30">
+					Did Rocket Elevators convinced you? 
+					<strong> GET A QUOTE !! </strong>
+				</span>
+			</a>
+			<!-- BUTTON CALLOUT -->
 			
 			<!-- Services -->
 			<section id="services">
@@ -303,66 +309,66 @@
 
 					<div class="row">
 						<div class="col-sm-4">
-						
-							<%= image_tag("rocketelevatorassets/1stribbon-1.jpg",class:"img-fluid", style:"cursor: pointer", alt:"img") %>
-							<h3 class="mt-10">99%+ Client Satisfaction</h3>
-							<p>We're by far one of the <strong>best</strong> in Canada. We are holders of numerous awards and have completed many major projects.</p> <!-- several major projects under our belt.</p> -->
-							<a href="#portfolio" class="btn btn-default">TAKE A LOOK</a>
+							<img class="img-fluid" src="<%= asset_path('award.jpg')%>" alt="img" />
+							<h3 class="mt-10">Awards and Realizations</h3>
+							<p> Through all these years, our company has won many awards and participated in many major projects...</p>
+							<a href="#portfolio" class="btn btn-default">Learn More...</a>
 						</div>
 
 						<div class="col-sm-4">
-							<%= image_tag("rocketelevatorassets/1stribbon-2.jpg", class:"img-fluid", style:"cursor: pointer", alt:"img") %>
-							</a>
-							<h3 class="mt-10">Residential&#8482; Work</h3>
-							<p>Make your tenants happy with our aesthetically-pleasing <strong>top quality</strong> elevators. We'll do what's right for you and your budget.</p>
-							<a href="residential.html" class="btn btn-default">LEARN MORE</a>
+							<img class="img-fluid" src="<%= asset_path('319779850_residential.jpg')%>" alt="img" />
+							<h3 class="mt-10">Residential Services</h3>
+							<p>We offer great quality products for residential uses. Let us rise your property value ! Click the button for more information.<p>
+							<a href="/residential" class="btn btn-default">Learn More...</a>
 						</div>
 
 						<div class="col-sm-4">
-							<%= image_tag("rocketelevatorassets/1stribbon-3.jpg", class:"img-fluid", style:"cursor: pointer", alt:"img") %>
-							<h3 class="mt-10">Corporate&#8482; Work</h3>
-							<p>Elevate your company, whether big or small, to the <strong>next level</strong> with our cutting-edge innovative elevator technology.</p>
-							<a href="corporate.html" class="btn btn-default">LEARN MORE</a>
+							<img class="img-fluid" src="<%= asset_path('AdobeStock_146216308.jpeg')%>" alt="img" />
+							<h3 class="mt-10">Corporate Services</h3>
+							<p>We are your solution for your corporate buildings. Click the button for more information.</p>
+							<a href="/corporative" class="btn btn-default">Learn More...</a>
 						</div>
+
 					</div>
+
 				</div>
 			</section>
 			<!-- /Services -->
 
 			<!-- Parallax -->
-			<section class="parallax parallax-1" style="background-image: url('/assets/rocketelevatorassets/AdobeStock_162479912.jpeg');">
-			 
+			<section class="parallax parallax-1" style="background-image: url('/assets/AdobeStock_162479912.jpeg')">
 				<div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
 
-				<div class="container text-center">
-					<h2 class="fs-40 fw-300 ">Elevating Society Since 1976, One Floor At A Time</h2>
-					<div class="row text-center">
-						<div class="col-sm-6">
-							<a class="btn btn-default btn-lg" href="quote.html">GET A QUOTE <i class="fa fa-angle-right"></i></a> 
-						</div>
-						<div class="col-sm-6">
-							<a class="btn btn-warning btn-lg" href="#services">OUR SERVICES <i class="fa fa-angle-right"></i></a>
-						</div>
+				<div class="container">
+
+					<div class="text-center">
+						<h2 class="fs-40 fw-300">Elevator Expert Since 1976</h2>
+						<a class="btn btn-red btn-3d" href="/quotes/new">REQUEST A QUOTE <i class="fa fa-angle-right"></i></a> 
+						&nbsp; OR &nbsp; 
+						<a class="btn btn-red btn-3d" href="#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
 					</div>
 
 				</div>
 			</section>
 			<!-- /Parallax -->
-			
+
+
+
+
 			<!-- PORTFOLIO -->
-			<section>
-				<div id="work" class="container">
+			<section id="portfolio">
+				<div class="container">
 
 					<div class="heading-title heading-dotted text-center">
-						<h2>Awards & Projects</h2>
+						<h2>Our Portfolio</h2>
 					</div>
 
 					<div class="text-center">
 						<ul class="nav nav-pills mix-filter mb-60">
-							<li data-filter="all" class="filter active"><a href="#">All</a></li>
-							<li data-filter="corporate" class="filter"><a href="#">Corporate</a></li>
-							<li data-filter="residential" class="filter"><a href="#">Residential</a></li>
-							<li data-filter="awards" class="filter"><a href="#">Awards/Recognitions</a></li>
+							<li data-filter="all" class="filter active"><a>All</a></li>
+							<li data-filter="awards" class="filter"><a>Awards</a></li>
+							<li data-filter="residential" class="filter"><a>Residential</a></li>
+							<li data-filter="corporative" class="filter"><a>Corporative</a></li>
 						</ul>
 					</div>
 
@@ -372,19 +378,17 @@
 
 						<div class="row mix-grid">
 
-							<div class="col-md-3 col-sm-3 mix corporate"><!-- item -->
+							<div class="col-md-3 col-sm-3 mix corporative"><!-- item -->
 
 								<div class="item-box">
 									<figure>
-										
-
-										<%= image_tag("rocketelevatorassets/portfolio/cntower2.jpg", class: "img-fluid", :size => '600x399', alt:"") %>
+										<%= image_tag("matrix.jpg", :alt => "MrSmith_Tower", :class => "img-fluid", :width =>"600", :height =>"399") %>
 									</figure>
 
 									<div class="item-box-desc">
-										<h3>CN Tower</h3>
+										<h3>Sydney</h3>
 										<ul class="list-inline categories m-0">
-											<li><a href="#">Corporate</a></li>
+											<li>Mr.Smith Tower</li>
 										</ul>
 									</div>
 
@@ -392,19 +396,18 @@
 
 							</div><!-- /item -->
 
-							<div class="col-md-3 col-sm-3 mix corporate"><!-- item -->
+							<div class="col-md-3 col-sm-3 mix corporative"><!-- item -->
 
 								<div class="item-box">
 									<figure>
-										
-
-										<%= image_tag("rocketelevatorassets/portfolio/futuristicbuilding.jpg", class: "img-fluid", :size => '600x399', alt:"") %>
+										<img class="img-fluid" src="<%= asset_path('Nakatomi_Plaza.jpg')%>" width="600" height="399" alt="">
 									</figure>
 
 									<div class="item-box-desc">
-										<h3>SONY Toronto HQ</h3>
+										<h3>Los Angeles</h3>
 										<ul class="list-inline categories m-0">
-											<li><a href="#">Corporate</a></li>
+											<li><a>Nakatomi Plaza</a></li>
+											<li><a>for your christmas party</a></li>
 										</ul>
 									</div>
 
@@ -412,18 +415,17 @@
 
 							</div><!-- /item -->
 
-							<div class="col-md-3 col-sm-3 mix corporate"><!-- item -->
+							<div class="col-md-3 col-sm-3 mix corporative"><!-- item -->
 
 								<div class="item-box">
 									<figure>
-
-										<%= image_tag("rocketelevatorassets/portfolio/city.jpg",  class: "img-fluid", :size => '600x399', alt:"") %>
+										<img class="img-fluid" src="<%= asset_path('starktower.jpg')%>" width="600" height="399" alt="">
 									</figure>
 
 									<div class="item-box-desc">
-										<h3>Bombardier HQ </h3>
+										<h3>New York</h3>
 										<ul class="list-inline categories m-0">
-											<li><a href="#">Corporate</a></li>
+											<li><a>Stark Tower</a></li>
 										</ul>
 									</div>
 
@@ -431,17 +433,17 @@
 
 							</div><!-- /item -->
 
-							<div class="col-md-3 col-sm-3 mix corporate"><!-- item -->
+							<div class="col-md-3 col-sm-3 mix corporative"><!-- item -->
 
 								<div class="item-box">
 									<figure>
-
-									    <%=image_tag("rocketelevatorassets/portfolio/glasselevator.png", class: "img-fluid", :size => '600x399', alt:"")%>
+										<img class="img-fluid" src="<%= asset_path('Wayne_Enterprises.jpg')%>" width="600" height="399" alt="">
 									</figure>
+
 									<div class="item-box-desc">
-										<h3>Unity Montreal HQ</h3>
+										<h3>Gotham City</h3>
 										<ul class="list-inline categories m-0">
-											<li><a href="#">Corporate</a></li>
+											<li><a>Wayne Tower</a></li>
 										</ul>
 									</div>
 
@@ -449,35 +451,74 @@
 
 							</div><!-- /item -->
 
-							<div class="col-md-3 col-sm-3 mix residential"><!-- item -->
+							<div class="col-md-3 col-sm-3 mix corporative"><!-- item -->
 
 								<div class="item-box">
 									<figure>
-										<%= image_tag("rocketelevatorassets/portfolio/coolresidential.png", alt: "", class: "img-fluid", :size => '600x399') %>
+										<img class="img-fluid" src="<%= asset_path('bifftannen.jpg')%>" width="600" height="399" alt="">
 									</figure>
 
 									<div class="item-box-desc">
-										<h3>Apartment Complex #3</h3>
+										<h3>Hill Valley</h3>
 										<ul class="list-inline categories m-0">
-											<li><a href="#">Residential</a></li>
+											<li><a>Biff Tannen's Pleasure Paradise</a></li>
 										</ul>
 									</div>
+
 								</div>
 
 							</div><!-- /item -->
-							
-							<div class="col-md-3 col-sm-3 mix residential"><!-- item -->
+
+							<div class="col-md-3 col-sm-3 mix corporative"><!-- item -->
 
 								<div class="item-box">
 									<figure>
-
-										<%= image_tag("rocketelevatorassets/portfolio/elevatorgeneric4.jpeg", class: "img-fluid", :size => '600x399', alt:"")%>
+										<img class="img-fluid" src="<%= asset_path('cubeselevator.png')%>" width="600" height="399" alt="">
 									</figure>
 
 									<div class="item-box-desc">
-										<h3>Apartment Complex #1</h3>
+										<h3>Vancouver</h3>
 										<ul class="list-inline categories m-0">
-											<li><a href="#">Residential</a></li>
+											<li><a>Cubic elevator</a></li>
+											<li><a>for creature releasing</a></li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+							<div class="col-md-3 col-sm-3 mix corporative"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<img class="img-fluid" src="<%= asset_path('shinning.jpg')%>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>Colorado</h3>
+										<ul class="list-inline categories m-0">
+											<li><a>The Overlook</a></li>
+											<li><a>Great place to be alone with your family.</a></li>
+										</ul>
+									</div>
+
+								</div>
+
+							</div><!-- /item -->
+
+							<div class="col-md-3 col-sm-3 mix corporative"><!-- item -->
+
+								<div class="item-box">
+									<figure>
+										<img class="img-fluid" src="<%= asset_path('Roosevelt-Hotel.jpg')%>" width="600" height="399" alt="">
+									</figure>
+
+									<div class="item-box-desc">
+										<h3>New York</h3>
+										<ul class="list-inline categories m-0">
+											<li><a>The Roosevelt Hotel</a></li>
+											<li><a>to access room #1408</a></li>
 										</ul>
 									</div>
 
@@ -489,14 +530,13 @@
 
 								<div class="item-box">
 									<figure>
-
-										<%= image_tag("rocketelevatorassets/portfolio/b.png", alt: "", class: "img-fluid", :size => '600x399') %>
+										<img class="img-fluid" src="<%= asset_path('nobel.jpg')%>" width="600" height="399" alt="">
 									</figure>
 
 									<div class="item-box-desc">
-										<h3>ADNZ Architectural Designs 2018</h3>
+										<h3>Nobel Prize</h3>
 										<ul class="list-inline categories m-0">
-											<li><a href="#">Awards/Recognitions</a></li>
+											<li><a>Physics Laureate in 2019 for PVector() comprehension.</a></li>
 										</ul>
 									</div>
 
@@ -508,15 +548,13 @@
 
 								<div class="item-box">
 									<figure>
-
-										<%= image_tag("rocketelevatorassets/portfolio/a.png", alt: "", class: "img-fluid", :size => '600x399') %>
-
+										<img class="img-fluid" src="<%= asset_path('Blue_Ribbon_logo.jpg')%>" width="600" height="399" alt="">
 									</figure>
 
 									<div class="item-box-desc">
-										<h3>HERTS Building & Co 2018</h3>
+										<h3>The Blue Ribbon Prize For Quality</h3>
 										<ul class="list-inline categories m-0">
-											<li><a href="#">Awards/Recognitions</a></li>
+											<li><a>For no elevator crashes over 10 years.</a></li>
 										</ul>
 									</div>
 
@@ -524,117 +562,75 @@
 
 							</div><!-- /item -->
 
-							<div class="col-md-3 col-sm-3 mix corporate"><!-- item -->
+							<div class="col-md-3 col-sm-3 mix awards"><!-- item -->
 
 								<div class="item-box">
 									<figure>
-
-										<%= image_tag("rocketelevatorassets/portfolio/highrise.png", alt: "", class: "img-fluid", :size => '600x399') %>
-
+										<img class="img-fluid" src="<%= asset_path('nightbird_award.jpg')%>" width="600" height="399" alt="">
 									</figure>
 
 									<div class="item-box-desc">
-										<h3>ScotiaBank HQ</h3>
+										<h3>Night Bird Award</h3>
 										<ul class="list-inline categories m-0">
-											<li><a href="#">Corporate</a></li>
+											<li><a>For having a night shift over 20 years.</a></li>
 										</ul>
 									</div>
 
 								</div>
 
 							</div><!-- /item -->
+
 
 							<div class="col-md-3 col-sm-3 mix residential"><!-- item -->
 
 								<div class="item-box">
 									<figure>
-										<%= image_tag("rocketelevatorassets/portfolio/redelevator.png", alt: "", class: "img-fluid", :size => '600x399') %>
-
+										<img class="img-fluid" src="<%= asset_path('treize.jpg')%>" width="600" height="399" alt="">
 									</figure>
 
 									<div class="item-box-desc">
-										<h3>Apartment Complex #2</h3>
+										<h3>Unbreakable Glass Elevator</h3>
 										<ul class="list-inline categories m-0">
-											<li><a href="#">Residential</a></li>
+											<li><a>Cyrus Kriticos's house</a></li>
 										</ul>
 									</div>
 
 								</div>
 
 							</div><!-- /item -->
-
-							<div class="col-md-3 col-sm-3 mix residential"><!-- item -->
-
-								<div class="item-box">
-									<figure>
-										<%= image_tag("rocketelevatorassets/portfolio/ceilingelevator.png", alt: "", class: "img-fluid", :size => '600x399') %>
-									</figure>
-
-									<div class="item-box-desc">
-										<h3>Hotel #1 </h3>
-										<ul class="list-inline categories m-0">
-											<li><a href="#">Residential</a></li>
-										</ul>
-									</div>
-
-								</div>
-
-							</div><!-- /item -->
-
-							<div class="col-md-3 col-sm-3 mix residential"><!-- item -->
-
-								<div class="item-box">
-									<figure>
-
-										<%= image_tag("rocketelevatorassets/portfolio/cooldesignelevator.png", alt: "", class: "img-fluid", :size => '600x399') %>
-									</figure>
-
-									<div class="item-box-desc">
-										<h3>Hotel #2</h3>
-										<ul class="list-inline categories m-0">
-											<li><a href="#">Residential</a></li>
-										</ul>
-									</div>
-
-								</div>
-
-							</div><!-- /item -->
-													
-							
 
 						</div>
+
 				</div>
 			</section>
-			<!-- Staff -->
+			<!-- /PORTFOLIO -->
+
+			<!-- Employees -->
 			<section class="section-xs dark">
 				<div class="container">
 
-					<div class="heading-title heading-dotted text-center">
-						<h2>Staff Spotlight</h2>
-					</div>
-
-					<div class="owl-carousel text-center owl-testimonial m-0" data-plugin-options='{"singleItem": true, "autoPlay": 3500, "navigation": false, "pagination": true, "transitionStyle":"fade"}'>
+					<div class="owl-carousel1 text-center owl-testimonial m-0" data-plugin-options='{"singleItem": true, "autoPlay": 3500, "navigation": false, "pagination": true, "transitionStyle":"fade"}'>
 						<div class="testimonial">
 							<figure>
-								<%= image_tag("rocketelevatorassets/ceo-employee/ceo.jpg", class: "rounded", alt: "") %>
+								<img class="rounded" src="<%= asset_path('Mathieu Lortie.JPG')%>" alt="" />
 							</figure>
 							<div class="testimonial-content p-0">
-								<p class="lead">"I am very thankful to have been given the opportunity to lead the fantastic team behind one of North America's most promising and most innovative companies."</p>
+								<p class="lead">Our Leader :</p>
 								<cite>
-									Mathieu Houde
-									<span>Chief Executive Officer</span>
+									Mathieu Lortie
+									<span>Rocket Elevator CEO</span>
 								</cite>
 							</div>
 						</div>
 						<div class="testimonial">
 							<figure>
-								<%= image_tag("rocketelevatorassets/ceo-employee/employeeofthemonth.jpg", class: "rounded",  alt: "")%>
+								<img class="rounded" src="<%= asset_path('William_jacques.jpg')%>" alt="" />
 							</figure>
 							<div class="testimonial-content p-0">
-								<p class="lead">"I am grateful to have been able to call RocketElevators my home for the past 4 years; it is the only place so far that has matched my enormous passion for technology."</p>
+								<p class="lead">Our best one :</p>
 								<cite>
-									Fabien H. Dimitrov
-									<span>Employee Of The Month</span>
+									William Jacques
+									<span>Employee of the month</span>
 								</cite>
 							</div>
 						</div>
@@ -642,7 +638,11 @@
 
 				</div>
 			</section>
-			<!-- /Staff -->
+			<!-- /Employees -->
+
+
+
+
 
 			<!-- News -->
 			<section id="news">
@@ -652,131 +652,98 @@
 						<h2>Recent News</h2>
 					</div>
 
-					<div class="owl-carousel owl-padding-10 buttons-autohide controlls-over" data-plugin-options='{"singleItem": false, "items":"3", "autoPlay": 4000, "navigation": true, "pagination": false}'>
+					<div class="owl-carousel2 owl-padding-10 buttons-autohide controlls-over">
 						<div class="img-hover">
-							<a target="_blank" href="https://www.ctvnews.ca/health/coronavirus/new-normal-elevators-moving-touchless-mobile-and-sideways-1.5045643">
-								<%=image_tag("rocketelevatorassets/news/cov-l.jpg", class:"img-responsive",  alt:"", width:"100%", height:"240px")%>
-							</a>
-							<h4 class="text-left mt-20"><a target="_blank" href="https://www.ctvnews.ca/health/coronavirus/new-normal-elevators-moving-touchless-mobile-and-sideways-1.5045643">IMPACTS OF COVID-19</a></h4>
-							<p class="text-left">How will the elevator industry be affected by the recent COVID-19 pandemic?</p>
-							<ul class="text-left fs-12 list-inline list-separator">
-								<li>
-									<i class="fa fa-calendar"></i> 
-									17th Jul 2020
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<i class="fa fa-comments"></i> 
-										45
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div class="img-hover">
-							<a target="_blank" href="https://www.retirementliving.com/home-elevators">
-								<%=image_tag("rocketelevatorassets/news/elevatorgeneric4.jpeg", class:"img-responsive", alt:"", width:"100%", height:"100%")%>
-							</a>
-							<h4 class="text-left mt-20"><a target="_blank" href="https://www.retirementliving.com/home-elevators">AFFORDABLE OPTIONS FOR ELEVATORS</a></h4>
-							<p class="text-left">Here's an extensive list of affordable options for elevator installation.</p>
-							<ul class="text-left fs-12 list-inline list-separator">
-								<li>
-									<i class="fa fa-calendar"></i> 
-									8th Apr 2020
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<i class="fa fa-comments"></i> 
-										6
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div class="img-hover">
-							<a target="_blank" href="https://delta-elevator.com/news">
-								<%=image_tag("rocketelevatorassets/news/maintenance.jpeg", class:"img-responsive",  alt:"", width:"100%", height:"100%")%>
+							<a href="https://scientect.com/news/1225888/global-elevator-and-escalator-market-to-register-explosive-growth-detailed-analysis-size-share-strategies-demand-analysis-and-projected-huge-growth-by-2026/" target="_blank">
+								<img class="img-fluid" src="<%= asset_path('news1.jpg')%>" alt="" width="600">
 							</a>
 
-							<h4 class="text-left mt-20"><a target="_blank" href="https://delta-elevator.com/news">TIPS FOR ELEVATOR MAINTENANCE</a></h4>
-							<p class="text-left">Check out these tips from professionals about elevator maintenance.</p>
+							<h4 class="text-left mt-20"><a href="https://scientect.com/news/1225888/global-elevator-and-escalator-market-to-register-explosive-growth-detailed-analysis-size-share-strategies-demand-analysis-and-projected-huge-growth-by-2026/" target="_blank">Global Elevator and Escalator Market To Register Explosive Growth</a></h4>
+							<p class="text-left">Elevator and Escalator Industry Market report 2020, discourses numerous driving factors or restraining the market, which will help the future market to raise with a huge CAGR. </p>
 							<ul class="text-left fs-12 list-inline list-separator">
 								<li>
 									<i class="fa fa-calendar"></i> 
-									5th Mar 2020
+									3rd Sept 2020
 								</li>
+								
+							</ul>
+						</div>
+						<div class="img-hover">
+							<a href="https://www.fool.com/millionacres/real-estate-market/articles/home-elevator-worth-the-investment/" target="_blank">
+								<img class="img-fluid" src="<%= asset_path('news2.jpg')%>" alt="" width="600">
+							</a>
+
+							<h4 class="text-left mt-20"><a href="https://www.fool.com/millionacres/real-estate-market/articles/home-elevator-worth-the-investment/" target="_blank">Home Elevator: Worth the Investment?</a></h4>
+							<p class="text-left">According to the U.S. Census Bureau, there are 49.2 million Americans who are age 65 or older. Another report indicated that there were 15.7 million Americans in that age group with a disability, with over 10 million having difficulty walking. For these individuals, an elevator in the home would change their lives, allowing them to age in place.</p>
+							<ul class="text-left fs-12 list-inline list-separator">
 								<li>
-									<a href="javascript:void(0)">
-										<i class="fa fa-comments"></i> 
-										1
-									</a>
+									<i class="fa fa-calendar"></i> 
+									27th Aug 2020
 								</li>
 							</ul>
 						</div>
 						<div class="img-hover">
-							<a target="_blank" href="https://www.schindler.com/us/internet/en/about-us/media-north-america/press-releases.html">
-								<%=image_tag("rocketelevatorassets/news/stock2.jpg", class:"img-responsive", alt:"", width:"100%", height:"100%")%>
+							<a href="https://patch.com/maryland/bethesda-chevychase/5m-circa-1930-tudor-chevy-chase-has-elevator-gym" target="_blank">
+								<img class="img-fluid" src="<%= asset_path('news3.jpg')%>" alt="" width="600">
 							</a>
 
-							<h4 class="text-left mt-20"><a target="_blank" href="https://www.schindler.com/us/internet/en/about-us/media-north-america/press-releases.html">THIS YEAR'S WINS AND LOSSES</a></h4>
-							<p class="text-left">Follow the current stock market trends for the top elevator companies.</p>
+							<h4 class="text-left mt-20"><a href="https://patch.com/maryland/bethesda-chevychase/5m-circa-1930-tudor-chevy-chase-has-elevator-gym" target="_blank">This $5M, Circa-1930 Tudor In Chevy Chase Has An Elevator, Gym</a></h4>
+							<p class="text-left">Built in 1930, this gorgeous Chevy Chase home boasts a main floor study, a master suite with a sitting area, a screened-in porch, and more.</p>
 							<ul class="text-left fs-12 list-inline list-separator">
 								<li>
 									<i class="fa fa-calendar"></i> 
-									22 Feb 2020
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<i class="fa fa-comments"></i> 
-										3
-									</a>
+									2nd Sept 2020
 								</li>
 							</ul>
 						</div>
 						<div class="img-hover">
-							<a target="_blank" href="https://www.sheridanlifts.com/blog/how-an-elevator-car-is-constructed/">
-								<%=image_tag("rocketelevatorassets/news/elevatorhand.jpeg", class:"img-responsive", alt:"", width:"100%", height:"100%")%>
+							<a href="https://www.businesswire.com/news/home/20200828005306/en/United-States-Elevator-Escalator-Market-Analysis-2020-2024" target="_blank">
+								<img class="img-fluid" src="<%= asset_path('news4.jpg')%>" alt="" width="600">
 							</a>
 
-							<h4 class="text-left mt-20"><a target="_blank" href="https://www.sheridanlifts.com/blog/how-an-elevator-car-is-constructed/">ELLIES 2020 WINNER ANNOUNCED</a></h4>
-							<p class="text-left">ELEVATOR WORLD has announced the winners of the Ellies 2020 awards program</p>
+							<h4 class="text-left mt-20"><a href="https://www.businesswire.com/news/home/20200828005306/en/United-States-Elevator-Escalator-Market-Analysis-2020-2024" target="_blank">United States Elevator and Escalator Market Analysis 2020-2024: Demand for Modernization is Driving Growth in the Market</a></h4>
+							<p class="text-left">The elevator and escalator market in the US is poised to grow by $ 876.82 mn during 2020-2024 progressing at a CAGR of 3% during the forecast period. This report offers an up-to-date analysis regarding the current US market scenario, latest trends and drivers, and the overall market environment. The market is driven by the changing demographics and increasing adoption of smart homes.</p>
 							<ul class="text-left fs-12 list-inline list-separator">
 								<li>
 									<i class="fa fa-calendar"></i> 
-									7th Feb 2020
-								</li>
-								<li>
-									<a href="javascript:void(0)">
-										<i class="fa fa-comments"></i> 
-										9
-									</a>
+									28th Aug 2020
 								</li>
 							</ul>
 						</div>
 						<div class="img-hover">
-							<a target="_blank" href="https://www.encyclopedia.com/science-and-technology/technology/technology-terms-and-concepts/elevator">
-								<%=image_tag("rocketelevatorassets/news/metallurgy2.jpg", class:"img-fluid", alt:"", width:"100%", height:"100%")%> 
+							<a href="https://www.sudbury.com/local-news/essential-worker-of-the-day-elevator-worker-eric-lebreton-2617242" target="_blank">
+								<img class="img-fluid" src="<%= asset_path('news5.jpg')%>" alt="" width="600">
 							</a>
-
-							<h4 class="text-left mt-20"><a target="_blank" href="https://www.encyclopedia.com/science-and-technology/technology/technology-terms-and-concepts/elevator">NEW RULES AND REGULATIONS</a></h4>
-							<p class="text-left">What the new 2020 regulations will mean for elevator manufacturers.</p>
+							<h4 class="text-left mt-20"><a href="https://www.sudbury.com/local-news/essential-worker-of-the-day-elevator-worker-eric-lebreton-2617242" target="_blank">Essential Worker of the Day: Elevator worker Eric LeBreton</a></h4>
+							<p class="text-left">Sudbury.com is recognizing Eric LeBreton as today's Essential Worker of the Day.</p>
 							<ul class="text-left fs-12 list-inline list-separator">
 								<li>
 									<i class="fa fa-calendar"></i> 
-									29th Jan 2020
-								</li>
-								<li>
-									<a href="javascript: void(0)">
-										<i class="fa fa-comments"></i> 
-										17
-									</a>
+									8th Aug 2020
 								</li>
 							</ul>
 						</div>
-						
+						<div class="img-hover">
+							<a href="https://scientect.com/uncategorized/1193645/elevator-components-market-trends-and-segments-by-2019-to-2029/" target="_blank">
+								<img class="img-fluid" src="<%= asset_path('news6.jpg')%>" alt="" width="600">
+							</a>
+							<h4 class="text-left mt-20"><a href="https://scientect.com/uncategorized/1193645/elevator-components-market-trends-and-segments-by-2019-to-2029/" target="_blank">Elevator Components Market Trends and Segments by 2019 to 2029</a></h4>
+							<p class="text-left">The study on the Elevator Components Market Research offers a profound comprehension of the market dynamics like opportunities, drivers, trends, and the challenges. The analysis further elaborates on the micro and macro-economic aspects which can be predicted to shape the rise of the Elevator Components Market throughout the forecast period (2019-2029).</p>
+							<ul class="text-left fs-12 list-inline list-separator">
+								<li>
+									<i class="fa fa-calendar"></i> 
+									2nd Sept 2020
+								</li>
+							</ul>
+						</div>
 					</div>
 
 				</div>
 			</section>
 			<!-- /News -->
+
+
+
 
 			<!-- Clients -->
 			<section id="clients" class="alternate">
@@ -785,73 +752,58 @@
 					<div class="heading-title heading-dotted text-center">
 						<h2>Our Clients</h2>
 					</div>
+
 					<ul class="row clients-dotted list-inline">
 						<li class="col-md-3 col-sm-3 col-6">
-							<a target="_blank" href="https://www.google.ca">
-								<%=image_tag("rocketelevatorassets/clients/google.png", alt:"client", class:"img-fluid" )%>
-							</a>
+							<img class="img-fluid" src="<%= asset_path('waynelogo.jpg')%>" alt="Wayne Enterprises" width="200"/>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a target="_blank" href="https://www.instagram.com">
-								<%=image_tag("rocketelevatorassets/clients/instagramv3.png", class:"img-fluid", alt:"client") %>
-							</a>
+							<img class="img-fluid" src="<%= asset_path('starklogo.jpg')%>" alt="Stark" width="200"/>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a target="_blank" href="https://www.groupeadonis.ca">
-								<%=image_tag("rocketelevatorassets/clients/adovi.png", class:"img-fluid", alt:"client") %>
-							</a>
+							<img class="img-fluid" src="<%= asset_path('cyberdynelogo.jpg')%>" alt="Cyberdyne" width="200"/>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a target="_blank" href="https://www.youtube.ca">
-								<%=image_tag("rocketelevatorassets/clients/youtube.png", class:"img-fluid",  alt:"client")%>
-							</a>
+							<img class="img-fluid" src="<%= asset_path('Umbrellacorpt1.jpg')%>" alt="Umbrella" width="200"/>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a target="_blank" href="https://www.twitter.com">
-								<%=image_tag("rocketelevatorassets/clients/twitter.png", class:"img-fluid", alt:"client") %>
-							</a>
+							<img class="img-fluid" src="<%= asset_path('jurassiclogo.jpg')%>" alt="Jurassic Park" width="200"/>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a target="_blank" href="https://www.sony.ca">
-								<%=image_tag("rocketelevatorassets/clients/sony.png", class:"img-fluid",  alt:"client") %>
-							</a>
+							<img class="img-fluid" src="<%= asset_path('monsterlogo.jpg')%>" alt="Monster Inc." width="200"/>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a target="_blank" href="https://www.adidas.ca">
-								<%=image_tag("rocketelevatorassets/clients/adidas.png", class:"img-fluid", alt:"client") %>
-							</a>
+							<img class="img-fluid" src="<%= asset_path('Zorglogo.jpg')%>" alt="Zorg" width="200"/>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a target="_blank" href="https://www.discord.com">
-								<%=image_tag("rocketelevatorassets/clients/discord.png", class:"img-fluid", alt:"client") %>
-							</a>
+							<img class="img-fluid" src="<%= asset_path('bifflogo.jpg')%>" alt="Biff Tannen" width="200"/>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a target="_blank" href="https://www.ubisoft.com/en-ca">
-								<%=image_tag("rocketelevatorassets/clients/ubisoft.png", class:"img-fluid", alt:"client") %>
-							</a>
+							<img class="img-fluid" src="<%= asset_path('rekalllogo.jpg')%>" alt="Rekall" width="200"/>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a target="_blank" href="https://www.blizzard.com">
-								<%=image_tag("rocketelevatorassets/clients/blizzard.png", alt:"client", class:"img-fluid") %>
-							</a>
+							<img class="img-fluid" src="<%= asset_path('robocoplogo.jpg')%>" alt="Robocop" width="200"/>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a target="_blank" href="https://www.bmo.com">
-								<%=image_tag("rocketelevatorassets/clients/bmo.png", class:"img-fluid", alt:"client") %>
-							</a>
+							<img class="img-fluid" src="<%= asset_path('Bubba_Gump_logo.jpg')%>" alt="Bubba Gump" width="200"/>
 						</li>
 						<li class="col-md-3 col-sm-3 col-6">
-							<a target="_blank" href="https://www.fungo.ca">
-								<%=image_tag("rocketelevatorassets/clients/fungo2.png", class:"img-fluid", alt:"client") %>
-							</a>						
+							<img class="img-fluid" src="<%= asset_path('WeylandLogo.jpg')%>" alt="Weyland" width="200"/>
 						</li>
 					</ul>
-					<h4 class="text-center">... And Many More</h4>
+
 				</div>
 			</section>
 			<!-- /Clients -->
 
+			<a href="/quotes/new" class="btn btn-xlg btn-primary fs-20 fullwidth m-0 rad-0 p-40 external">
+				<span class="font-lato fs-30">
+					Did Rocket Elevators convinced you? 
+					<strong> GET A QUOTE !! </strong>
+				</span>
+			</a>
+
+			
 			<!-- CONTACT -->
 			<section id="contact">
 				<div class="container">
@@ -990,27 +942,31 @@
 			</section>
 			<!-- /CONTACT -->
 
+
 			<!-- FOOTER -->
-			<footer id="footer">
-				<div class="container">
+
+			<footer id="footer" style="background-image: url('/assets/particles_bg.jpg')">
+
+				<div class="container" >
 
 					<div class="row">
 
 						<!-- col #1 -->
-						<div class="col-md-8">
+						<div class="col-md-6">
 
 							<h3 class="letter-spacing-1">WHY US?</h3>
 
 							<!-- Small Description -->
 							<p>
-								It's real simple: we're at the forefront of elevator technology and we always make it work. 
+								Because we're simply the best !
 							</p>
+							
 							<h2>(581) 701-0303</h2>
 						</div>
 						<!-- /col #1 -->
 
 						<!-- col #2 -->
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
 
 							<!-- Newsletter Form -->
@@ -1021,49 +977,64 @@
 									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
 									<span class="input-group-btn">
-										<button class="btn btn-success" type="submit">Subscribe</button>
+										<button class="btn btn-blue" type="submit">Subscribe</button>
 									</span>
 								</div>
 							</form>
 							<!-- /Newsletter Form -->
+
 
 						</div>
 						<!-- /col #2 -->
 
 					</div>
 
+
 				</div>
 
 				<div class="copyright">
 					<div class="container">
 						<ul class="float-right m-0 list-inline mobile-block">
-							<li><a href="#">Terms &amp; Conditions</a></li>
+							<li>Terms &amp; Conditions</li>
 							<li>&bull;</li>
-							<li><a href="#">Privacy</a></li>
+							<li>Privacy</li>
 						</ul>
-						&copy; All Rights Reserved, RocketElevators&trade;
+						&copy; All Rights Reserved, Company LTD
 					</div>
 				</div>
 
 			</footer>
-			<!-- /FOOTER -->
 
 		</div>
 		<!-- /wrapper -->
 
-		<!-- SCROLL TO TOP -->
-		<a href="#" id="toTop"></a>
-
 		<script>
 		$(document).ready(function(){
-			$(".recaptchaForm").on('submit', function(event){
-
-				var recaptcha = $('#g-recaptcha-response').val();
-				if(recaptcha===""){
-					event.preventDefault();
-					alert("Please Check Recaptcha")
-				}
-			})
-		})
+			$('.owl-carousel1').owlCarousel({
+				items: 1,
+				loop: false,
+				center: true,
+				nav: true,
+				autoHeight: true,
+				autoWidth: true,
+				margin: 10,
+			});
+  			$('.owl-carousel2').owlCarousel({
+				items: 2,
+				loop: true,
+				nav: true,
+				autoHeight: true,
+				progressBar: true,
+				margin: 10,
+				
+			});
+			
+		});
 		</script>
 		
+
+		<!-- SCROLL TO TOP -->
+		<a href="#" id="toTop"></a>
+		
+	</body>
+</html>

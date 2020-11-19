@@ -11,16 +11,14 @@
 		<!-- mobile settings -->
 		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-
 	</head>
-	
-	<body class="smoothscroll enable-animation">
+		<body class="smoothscroll enable-animation">
 
 		<!-- SLIDE TOP -->
 		<div id="slidetop">
 
 			<div class="container">
-				
+			
 				<div class="row">
 
 					<div class="col-md-4">
@@ -32,7 +30,7 @@
 						<h6><i class="fa-facheck"></i> Regions deserved :</h6>
 						<ul class="list-unstyled">
 							<li><i class="fa fa-angle-right"></i> Quebec City</li>
-							<li><i class="fa fa-angle-right"></i> Montreal</li>
+							<li><i class="fa fa-angle-right"></i> Montreal </li>
 							<li><i class="fa fa-angle-right"></i> Tampa Bay (Coming Soon)</li>
 							<li><i class="fa fa-angle-right"></i> Philadelphia (Comming Soon)</li>
 							<li><i class="fa fa-angle-right"></i> New York (Coming Soon)</li>
@@ -52,21 +50,17 @@
 
 			</div>
 
-			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
+			<a class="slidetop-toggle"><!-- toggle button --></a>
 
 		</div>
+		
+		<!-- /SLIDE TOP -->
+
 
 		<!-- wrapper -->
 		<div id="wrapper">
 
 			<!-- HEADER -->
-			<style type="text/css">
-				@media(max-width:660px){
-					#get_quote {
-						display: none !important; 
-					}
-				}
-			</style>
 			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
 
 				<header id="topNav">
@@ -78,9 +72,9 @@
 						</button>
 
 						<a class="logo float-left" href="#top">
-							<img src="<%= asset_path('rocketelevatorassets/R2.png')%>" alt="" />
+							<img src="<%= asset_path('R2.png')%>" alt="" />
 						</a>
-
+						
 						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-light">
 							<nav class="nav-main">
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
@@ -92,7 +86,7 @@
 										<ul class="dropdown-menu" style=white-space:nowrap;>
 											<li class="dropdown"><a href="/#services">SERVICES</a></li>
 											<li class="dropdown"><a href="/residential">RESIDENTIAL</a></li>
-											<li class="dropdown"><a href="/corporative">CORPORATE & COMMERCIAL</a></li>
+											<li class="dropdown"><a href="/corporate">CORPORATE & COMMERCIAL</a></li>
 											<li class="dropdown"><a href="/quote">GET A QUOTE</a></li>
 										</ul>
 									</li>
@@ -100,7 +94,16 @@
 									<li><a href="/#news">NEWS</a></li>
 									<li><a href="/#clients">CLIENTS</a></li>
 									<li><a href="/#contact">CONTACT</a></li>
-									<li><a href="/intervention">INTERVENTIONS</a></li>									
+									<li><a href="/intervention">INTERVENTIONS</a></li>
+									<% if current_admin_user%>
+										<li><%= link_to 'LOGOUT', destroy_admin_user_session_path, method: :delete %></li>
+										<% if current_admin_user.admin?%>
+										<li><a href="/admin">BACKOFFICE</a></li>
+										<% end %>
+									<% else %>
+										<li><%= link_to 'SIGNUP', new_admin_user_registration_path%></li>								
+										<li><%= link_to 'LOGIN', new_admin_user_session_path%></li>								
+									<% end %>													
 								</ul>
 							</nav>
 						</div>

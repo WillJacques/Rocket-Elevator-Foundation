@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resource :quotes
   resources :interventions
-  resource :leads
+  resources :leads
 
   resource :employees
 
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   #admin_root ''
 
   # GET routes
-  get 'quote' => 'quotes#quote'
+  get 'quote' => 'quotes#new'
   get 'intervention' => 'interventions#new'
   get 'corporate' => 'pages#corporate'
   get 'residential' => 'pages#residential'

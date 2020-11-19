@@ -6,6 +6,6 @@ class PagesController < ApplicationController
     def residential
     end
 
-    def corporate
+    def corporative
     end
 end

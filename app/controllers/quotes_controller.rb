@@ -19,10 +19,6 @@ class QuotesController < ApplicationController
     # GET /quotes/new
     def new
         @quote = Quote.new
-        respond_to do |format|
-            format.html #quotes.html.erb
-            format.json {render json: @quote}
-        end
     end
 
     # GET /quotes/1/edit
@@ -34,11 +30,6 @@ class QuotesController < ApplicationController
     # POST /create/quote.json
     def create 
         @quote = Quote.new(params[:quote])
-
-        
-        
-
-
         respond_to do |format|
             @quote.update!(quote_params)
             # p '------------------'
@@ -53,10 +44,10 @@ class QuotesController < ApplicationController
                 
                     # Mandatory:
             
-                    config.url = "https://rocket-elevators-help.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
+                    config.url = "https://wjacques.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
                 
                     # Basic / Token Authentication
-                    config.username = "dimitrov.fabien@gmail.com/token"
+                    config.username = "willy321@hotmail.com/token"
                 
                     # Choose one of the following depending on your authentication choice
                     config.token = ENV['zendesk_key']

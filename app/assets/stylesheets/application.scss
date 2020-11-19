@@ -9,24 +9,26 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- 
  *
-
- *= require_tree "."
- *= stub "active_admin"
-
- 
- *= require_self
-
- *= require_bootstrap-sprockets
-
-
+ *= require owl.carousel
+ *= require owl.theme
  */
 
- @import "bootstrap";
- @import "bootstrap-social";
- @import "darkblue";
- 
-//to stop having the fontawsome 404
- @import "font-awesome-sprockets";
- @import "font-awesome";
+@import "extralayer";
+@import "bootstrap1";
+@import "essentials";
+@import "font-google";
+@import "settings";
+@import "layout";
+@import "header";
+@import "darkblue";
+@import "customforms";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "bootstrap-sprockets"; 
+@import 'owl.carousel';
+@import 'extralayer';
+@import 'owl.pack';
+@import 'owl.theme';
+@import 'owl.transitions';
+@import 'bootstrap-glyphicons';

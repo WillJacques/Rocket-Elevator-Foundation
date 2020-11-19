@@ -6,3 +6,6 @@
 //= link_tree ../stylesheets/fonts
 //= link_tree ../stylesheets/font
 
+//= link_tree ../fonts
+//= link_tree ../font
+
