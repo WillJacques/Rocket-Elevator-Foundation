@@ -17,7 +17,7 @@ class Elevator < ApplicationRecord
             @client = Twilio::REST::Client.new account_sid, auth_token
             message = @client.messages.create(
                 body: "The Elevator #{e.id} has just changed status to intervention.",
-                to: "+15817771245",    # Replace with your phone number
+                to: "+15819831152",    # Replace with your phone number
                 from: "+16318574281")  # Use this Magic Number for creating
             
             puts message.sid
