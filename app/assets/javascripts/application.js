@@ -10,8 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap.min
-//= require jquery.nav.min
+
 //= require jquery-3.3.1.min
 //= require jquery.nav
 //= require bootstrap-sprockets
