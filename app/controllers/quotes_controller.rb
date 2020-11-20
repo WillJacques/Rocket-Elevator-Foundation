@@ -16,7 +16,7 @@ class QuotesController < ApplicationController
     end
   
     
-    # GET /quotes/new
+    # GET /quote
     def new
         @quote = Quote.new
     end
