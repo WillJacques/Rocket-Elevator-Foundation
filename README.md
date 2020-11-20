@@ -6,6 +6,7 @@ Contains all code for Consolidation Week in Odyssey :
 REPO for REST_API : https://github.com/WillJacques/Rocket-Elevator-Foundation-REST
 URL for REST_API : https://wjrocketapi.azurewebsites.net
 Zendesk API : https://wjacques.zendesk.com/
+Postman Collection : https://www.getpostman.com/collections/7a72ee2682bb2bd7ed7a
 
 
 -To return all interventtions that do not have a start date and are in "Pending" status :

@@ -276,24 +276,36 @@
 		$("#intervention_customer_id").change(function(){
 			var project = $(this).val();
 			if(project == ''){
+				$("#intervention_elevator_id").prop("hidden", true);
+				$("#intervention_column_id").prop("hidden", true);
+				$("#intervention_battery_id").prop("hidden", true);
 				$("#intervention_building_id").prop("hidden", true);
 			}else{
-				$("#intervention_building_id").prop("hidden", false);
+				$("#intervention_building_id").prop("hidden", false);				
+				$("#intervention_elevator_id").prop("hidden", true);
+				$("#intervention_column_id").prop("hidden", true);
+				$("#intervention_battery_id").prop("hidden", true);
 			}
 		});
 		$("#intervention_building_id").change(function(){
 			var project = $(this).val();
 			if(project == ''){
+				$("#intervention_elevator_id").prop("hidden", true);
+				$("#intervention_column_id").prop("hidden", true);
 				$("#intervention_battery_id").prop("hidden", true);
 			}else{
+				$("#intervention_elevator_id").prop("hidden", true);
+				$("#intervention_column_id").prop("hidden", true);
 				$("#intervention_battery_id").prop("hidden", false);
 			}
 		});
 		$("#intervention_battery_id").change(function(){
 			var project = $(this).val();
 			if(project == ''){
+				$("#intervention_elevator_id").prop("hidden", true);
 				$("#intervention_column_id").prop("hidden", true);
 			}else{
+				$("#intervention_elevator_id").prop("hidden", true);
 				$("#intervention_column_id").prop("hidden", false);
 			}
 		});
