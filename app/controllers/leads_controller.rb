@@ -1,5 +1,4 @@
 class LeadsController < ApplicationController
-  skip_before_action :verify_authenticity_token
   require 'zendesk_api'
   #before_action :set_lead, only: [:show, :edit, :update, :destroy]
 
