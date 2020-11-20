@@ -5,7 +5,7 @@ class Intervention < ApplicationRecord
     belongs_to :battery, optional: true
     belongs_to :column, optional: true
     belongs_to :employee, optional: true
-    #after_create :zendesk_intervention
+    after_create :zendesk_intervention
     
 
     def zendesk_intervention
