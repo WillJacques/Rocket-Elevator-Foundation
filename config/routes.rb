@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   get 'index' => 'pages#index'
   get 'admin_root' => 'elevators#index'
   get 'googledcf02c3ead535472.html' => 'pages#googledcf02c3ead535472.html'
+  get '/building' => 'buildings#buildingselect'
+  get '/battery' => 'batteries#batteryselect'
+  get '/column' => 'columns#columnselect'
+  get '/elevator' => 'elevators#elevatorselect'
  
 
   # POST routes

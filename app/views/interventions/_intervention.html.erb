@@ -71,14 +71,14 @@
 							<i class="fa fa-bars"></i>
 						</button>
 
-						<a class="logo float-left" href="#top">
+						<a class="logo float-left" href="index">
 							<img src="<%= asset_path('R3.png')%>" alt="" />
 						</a>
 						
 						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-light">
 							<nav class="nav-main">
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
-									<li><a href="/#top">HOME</a></li>
+									<li><a href="/index">HOME</a></li>
 									<li >
 										<a class="dropdown-toggle">
 											SERVICES
@@ -150,37 +150,37 @@
 									<tbody>
 										<tr>
 											<td><%= f.label :customer_id, "Company Name" %></td>
-											<td><%= f.collection_select :customer_id, Customer.order(:company_name), :id, :company_name, include_blank: true %></td>
+											<td><%= f.select(:customer_id, Customer.all.collect {|p| [p.company_name, p.id]},  {prompt: "Select"}, {class: 'form-control'}) %></td>
 										</tr>
 									</tbody>
 									<tbody>
 										<tr>
 											<td><%= f.label :building_id, "Building Address" %></td>
-											<td><%= f.grouped_collection_select :building_id, Customer.order(:company_name), :buildings, :company_name, :id, :address_of_the_building, include_blank: true %></td>
+											<td><%= f.select(:building_id, Building.all.collect {|t| [t.address_of_the_building, t.id]}, {}, {class: 'form-control'}) %></td>
 										</tr>
 									</tbody>
 									<tbody>
 										<tr>
 											<td><%= f.label :battery_id, "Battery ID" %></td>
-											<td><%= f.grouped_collection_select :battery_id, Building.order(:address_of_the_building), :batteries, :address_of_the_building, :id, :id, include_blank: true %></td>
+											<td><%= f.select(:battery_id, Battery.all.collect {|b| [b.id, b.id]}, {}, {class: 'form-control'}) %></td>
 										</tr>
 									</tbody>
 									<tbody>
 										<tr>
-											<td><%= f.label :column_id, "Column ID" %></td>
-											<td><%= f.grouped_collection_select :column_id, Battery.order(:id), :columns, :id, :id, :id, include_blank: true %></td>
+											<td><%= f.label :column_id, "Column Column" %></td>
+											<td><%= f.select(:column_id, Column.all.collect {|build| [build.id, build.id]}, {}, {class: 'form-control'}) %></td>
 										</tr>
 									</tbody>
 									<tbody>
 										<tr>
 											<td><%= f.label :elevator_id, "Elevator ID" %></td>
-											<td><%= f.grouped_collection_select :elevator_id, Column.order(:id), :elevators, :id, :id, :id, include_blank: true %></td>
+											<td><%= f.select(:elevator_id, Elevator.all.collect {|e| [e.id, e.id]}, {}, {class: 'form-control'}) %></td>
 										</tr>
 									</tbody>
 									<tbody>
 										<tr>
 											<td><%= f.label :employee_id, "Employee Name" %></td>
-											<td><%= f.collection_select :employee_id, Employee.order(:id), :id, :display_name, prompt: 'None' %></td>
+											<td><%= f.select(:employee_id, Employee.all.collect {|em| [em.display_name, em.id]}, {prompt: "Select"}, {class: 'form-control'}) %></td>
 										</tr>
 									</tbody>
 									<tbody>
@@ -274,8 +274,8 @@
 		$("#intervention_elevator_id").prop("hidden", true); // second dropdown is disable while first dropdown is empty
 
 		$("#intervention_customer_id").change(function(){
-			var project = $(this).val();
-			if(project == ''){
+			var customer = $(this).val();
+			if(customer == ''){
 				$("#intervention_elevator_id").prop("hidden", true);
 				$("#intervention_column_id").prop("hidden", true);
 				$("#intervention_battery_id").prop("hidden", true);
@@ -286,10 +286,29 @@
 				$("#intervention_column_id").prop("hidden", true);
 				$("#intervention_battery_id").prop("hidden", true);
 			}
+			$.ajax({
+				url: "/building",
+				type: "GET",  
+				dataType: "json",
+				data: {customer: customer},
+				error: function (xhr, status, error) {
+					console.error('AJAX Error: ' + status + error);
+				},
+				success: function (response) {
+					console.log(response);
+					var buildings = response["buildings"];
+					$("#intervention_building_id").empty();
+
+					$("#intervention_building_id").append('<option value="">Select Building</option>');
+					for(var i = 0; i < buildings.length; i++){
+						$("#intervention_building_id").append('<option value="' + buildings[i]["id"] + '">' +buildings[i]["address_of_the_building"] + '</option>');
+					}
+				}
+			});
 		});
 		$("#intervention_building_id").change(function(){
-			var project = $(this).val();
-			if(project == ''){
+			var building = $(this).val();
+			if(building == ''){
 				$("#intervention_elevator_id").prop("hidden", true);
 				$("#intervention_column_id").prop("hidden", true);
 				$("#intervention_battery_id").prop("hidden", true);
@@ -298,24 +317,81 @@
 				$("#intervention_column_id").prop("hidden", true);
 				$("#intervention_battery_id").prop("hidden", false);
 			}
+			$.ajax({
+				url: "/battery",
+				type: "GET",  
+				dataType: "json",
+				data: {building: building},
+				error: function (xhr, status, error) {
+					console.error('AJAX Error: ' + status + error);
+				},
+				success: function (response) {
+					console.log(response);
+					var batteries = response["batteries"];
+					$("#intervention_battery_id").empty();
+
+					$("#intervention_battery_id").append('<option value="">Select Battery</option>');
+					for(var i = 0; i < batteries.length; i++){
+						$("#intervention_battery_id").append('<option value="' + batteries[i]["id"] + '">' +batteries[i]["id"] + '</option>');
+					}
+				}
+			});
 		});
 		$("#intervention_battery_id").change(function(){
-			var project = $(this).val();
-			if(project == ''){
+			var battery = $(this).val();
+			if(battery == ''){
 				$("#intervention_elevator_id").prop("hidden", true);
 				$("#intervention_column_id").prop("hidden", true);
 			}else{
 				$("#intervention_elevator_id").prop("hidden", true);
 				$("#intervention_column_id").prop("hidden", false);
 			}
+			$.ajax({
+				url: "/column",
+				type: "GET",  
+				dataType: "json",
+				data: {battery: battery},
+				error: function (xhr, status, error) {
+					console.error('AJAX Error: ' + status + error);
+				},
+				success: function (response) {
+					console.log(response);
+					var columns = response["columns"];
+					$("#intervention_column_id").empty();
+
+					$("#intervention_column_id").append('<option value="">None</option>');
+					for(var i = 0; i < columns.length; i++){
+						$("#intervention_column_id").append('<option value="' + columns[i]["id"] + '">' +columns[i]["id"] + '</option>');
+					}
+				}
+			});
 		});
 		$("#intervention_column_id").change(function(){
-			var project = $(this).val();
-			if(project == ''){
+			var column = $(this).val();
+			if(column == ''){
 				$("#intervention_elevator_id").prop("hidden", true);
 			}else{
 				$("#intervention_elevator_id").prop("hidden", false);
 			}
+			$.ajax({
+				url: "/elevator",
+				type: "GET",  
+				dataType: "json",
+				data: {column: column},
+				error: function (xhr, status, error) {
+					console.error('AJAX Error: ' + status + error);
+				},
+				success: function (response) {
+					console.log(response);
+					var elevators = response["elevators"];
+					$("#intervention_elevator_id").empty();
+
+					$("#intervention_elevator_id").append('<option value="">None</option>');
+					for(var i = 0; i < elevators.length; i++){
+						$("#intervention_elevator_id").append('<option value="' + elevators[i]["id"] + '">' +elevators[i]["id"] + '</option>');
+					}
+				}
+			});
 		});
 		</script>
 	</body>

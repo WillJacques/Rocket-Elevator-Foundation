@@ -2,7 +2,22 @@ class ElevatorsController < InheritedResources::Base
 
  # def index
   #  @elevators = Elevator.all
-  #end
+  #
+  
+  def elevatorselect
+    if params[:column].present?
+      @elevators = Column.find(params[:column]).elevators
+    else
+        @elevators = Column.all
+    end
+    if request.xhr?
+        respond_to do |format|
+            format.json {
+                render json: {elevators: @elevators}
+            }
+        end
+    end 
+  end
   
   private
     def elevator_params
