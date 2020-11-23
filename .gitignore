@@ -135,3 +135,5 @@ sengrid.env
 /config/application.yml
 app/services/watson_textspeech.rb
 /.ionide
+spec/string_calculator_spec.rb
+lib/string_calculator.rb

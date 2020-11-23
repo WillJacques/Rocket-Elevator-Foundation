@@ -75,7 +75,7 @@
 							<i class="fa fa-bars"></i>
 						</button>
 
-						<a class="logo float-left" href="index">
+						<a class="logo float-left" href="/index">
 							<img src="<%= asset_path('R3.png')%>" alt="" />
 						</a>
 						
@@ -83,21 +83,18 @@
 							<nav class="nav-main">
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
 									<li><a href="/index">HOME</a></li>
-									<li >
-										<a class="dropdown-toggle">
-											SERVICES
-										</a>
-										<ul class="dropdown-menu" style=white-space:nowrap;>
-											<li class="dropdown"><a href="/#services">SERVICES</a></li>
-											<li class="dropdown"><a href="/residential">RESIDENTIAL</a></li>
-											<li class="dropdown"><a href="/corporate">CORPORATE & COMMERCIAL</a></li>
-											<li class="dropdown"><a href="/quote">GET A QUOTE</a></li>
-										</ul>
+									<li class="dropdown nav-animate-fadeIn resp-active"><!-- SERVICES -->
+									<%= link_to 'SERVICES', root_path(anchor: "services") %>
+									<ul class="dropdown-menu">
+										<li class="dropdown"><a href="/residential">RESIDENTIAL</a></li>
+										<li class="dropdown"><a href="/corporate">CORPORATE & COMMERCIAL</a></li>
+										<li class="dropdown"><a href="/quote">GET A QUOTE</a></li>
+									</ul>
 									</li>
-									<li><a href="/#portfolio">PORTFOLIO</a></li>
-									<li><a href="/#news">NEWS</a></li>
-									<li><a href="/#clients">CLIENTS</a></li>
-									<li><a href="/#contact">CONTACT</a></li>
+									<li><%= link_to 'PORTFOLIO', root_path(anchor: "portfolio"), 'data-turbolinks': false %></li>
+									<li><%= link_to 'NEWS', root_path(anchor: "news"), 'data-turbolinks': false %></li>
+									<li><%= link_to 'CLIENTS', root_path(anchor: "clients"), 'data-turbolinks': false %></li>
+									<li><%= link_to 'CONTACT', root_path(anchor: "contact"), 'data-turbolinks': false %></li>
 									<li><a href="/intervention">INTERVENTIONS</a></li>
 									<% if current_admin_user%>
 										<li><%= link_to 'LOGOUT', destroy_admin_user_session_path, method: :delete %></li>
@@ -157,8 +154,8 @@
 								data-endelementdelay="0.1"
 								data-endspeed="500"
 								style="z-index: 4; max-width: auto;">
-									<a class="btn btn-red btn-block" style= "font-size:16px;display: table-cell; vertical-align: middle" href="#services">OUR SERVICES &nbsp; <i class="fa fa-angle-right"></i></a>
-							</div>
+									<a class="btn btn-red btn-block" style= "font-size:16px;display: table-cell; vertical-align: middle" href="#services">OUR SERVICES &nbsp; <i class="fa fa-angle-right"></i></a>							
+									</div>
 
 							<div class="tp-caption sfb tp-resizeme"
 								data-x="250"
@@ -312,21 +309,21 @@
 							<img class="img-fluid" src="<%= asset_path('award.jpg')%>" alt="img" />
 							<h3 class="mt-10">Awards and Realizations</h3>
 							<p> Through all these years, our company has won many awards and participated in many major projects...</p>
-							<a href="#portfolio" class="btn btn-default">Learn More...</a>
+							<%= link_to 'Learn More...', root_path(anchor: "portfolio"), 'data-turbolinks': false %>
 						</div>
 
 						<div class="col-sm-4">
 							<img class="img-fluid" src="<%= asset_path('319779850_residential.jpg')%>" alt="img" />
 							<h3 class="mt-10">Residential Services</h3>
 							<p>We offer great quality products for residential uses. Let us rise your property value ! Click the button for more information.<p>
-							<a href="/residential" class="btn btn-default">Learn More...</a>
+							<%= link_to 'Learn More...', root_path(anchor: "/residential"), 'data-turbolinks': false %>
 						</div>
 
 						<div class="col-sm-4">
 							<img class="img-fluid" src="<%= asset_path('AdobeStock_146216308.jpeg')%>" alt="img" />
 							<h3 class="mt-10">Corporate Services</h3>
 							<p>We are your solution for your corporate buildings. Click the button for more information.</p>
-							<a href="/corporative" class="btn btn-default">Learn More...</a>
+							<%= link_to 'Learn More...', root_path(anchor: "/corporative"), 'data-turbolinks': false %>
 						</div>
 
 					</div>
@@ -345,7 +342,7 @@
 						<h2 class="fs-40 fw-300">Elevator Expert Since 1976</h2>
 						<a class="btn btn-red btn-3d" href="/quote">REQUEST A QUOTE <i class="fa fa-angle-right"></i></a> 
 						&nbsp; OR &nbsp; 
-						<a class="btn btn-red btn-3d" href="#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
+						<a class="btn btn-red btn-3d" href="/index">CONTACT US <i class="fa fa-angle-right"></i></a>
 					</div>
 
 				</div>
@@ -1020,17 +1017,12 @@
 				loop: true,
 				nav: true,
 				autoHeight: true,
-				progressBar: true,
 				margin: 10,
 				
 			});
 			
 		});
 		</script>
-		
-
-		<!-- SCROLL TO TOP -->
-		<a href="#" id="toTop"></a>
 		
 	</body>
 </html>
