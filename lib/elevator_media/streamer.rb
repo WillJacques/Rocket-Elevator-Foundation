@@ -26,7 +26,7 @@ module ElevatorMedia
                 number_of_case = parsed_json[0]["#{status}"]
                 capitalized_province = province.capitalize
 
-                response = "<h2>#{capitalized_province} has now #{number_of_case} #{status} cases.</h2>"
+                response = "<p>has now #{number_of_case} #{status} cases.</p>"
                 return response
             end
             puts response
@@ -67,7 +67,7 @@ module ElevatorMedia
             parsed_json = JSON.parse(response.body)
             number_of_confirmed_worldwide = parsed_json[0]["#{first_info}"].to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
 
-            response = "<h1>#{number_of_confirmed_worldwide} confirmed cases</h1>"
+            response = "<p>#{number_of_confirmed_worldwide} confirmed cases</p>"
             puts response
             return response
         end
@@ -91,7 +91,7 @@ module ElevatorMedia
             temperature_text = parsed_json["current"]["condition"]["text"]
             temperature_icon = parsed_json["current"]["condition"]["icon"]
 
-            response = "<h1>Currently #{temperature_outside}ºC outside<br>#{temperature_text}<img src='#{temperature_icon}'></h1>"
+            response = "<p>Currently : #{temperature_outside}ºC and it's #{temperature_text} outside <img src='#{temperature_icon}'></p>"
             puts response
 
             return response

@@ -119,19 +119,17 @@
 						<div class="col-sm-4">
 							<i class="glyphicon glyphicon-globe"></i>
 							<h3>COVID-19 Worldwide Cases</h3>
-							<br>
 							<%= ElevatorMedia::Streamer.getContent2("confirmed").html_safe %>
 						</div>
 
-						<div class="col-sm-5">
+						<div class="col-sm-4">
 							<i class="glyphicon glyphicon-ok-circle"></i>
+							<h3>Province of Quebec</h3>
 							<%= ElevatorMedia::Streamer.getContent("confirmed", "quebec").html_safe %>
-							<br>
-							<i class="glyphicon glyphicon-exclamation-sign"></i>
-							<%= ElevatorMedia::Streamer.getContent("death", "quebec").html_safe %>
 						</div>
 
-						<div class="col-sm-3">
+						<div class="col-sm-4">
+							<h3>Temperature</h3>
 							<%= ElevatorMedia::Streamer.getContent3("quebec").html_safe %>
 						</div>
 
