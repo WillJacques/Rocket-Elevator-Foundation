@@ -6,7 +6,7 @@ module ElevatorMedia
             require 'openssl'
             require 'json'
 
-            url = URI("https://covid1910.p.rapidapi.com/data/confirmed/country/canada/province/#{input}")
+            url = URI("https://covid1910.p.rapidapi.com/data/#{input}/country/canada/province/alberta")
 
             http = Net::HTTP.new(url.host, url.port)
             http.use_ssl = true
@@ -19,8 +19,8 @@ module ElevatorMedia
             response = http.request(request)
             puts response.read_body
             parsed_json = JSON.parse(response.body)
-            puts parsed_json[0]["province"]
-            return parsed_json[0]["province"]
+            puts parsed_json[0]["#{input}"]
+            return parsed_json[0]["#{input}"]
         end
     end
 end
