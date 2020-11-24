@@ -123,33 +123,19 @@
 						</div>
 
 						<div class="col-sm-3">
-							<h3>Province</h3>
-								<select id="selected_province" required class="form-control pointer" name="elevator_media[selected_province]">
-									<option value="">--- Select ---</option>
-									<option value="quebec">Quebec</option>
-									<option value="ontario">Ontario</option>
-									<option value="alberta">Alberta</option>
-								</select>
+							<i class="glyphicon glyphicon-ok-circle"></i>
+							<%= ElevatorMedia::Streamer.getContent("confirmed", "quebec").html_safe %>
 						</div>
 
 						<div class="col-sm-3">
-							<h3>Status</h3>
-								<select id="selected_status" required class="form-control pointer" name="elevator_media[selected_status]">
-									<option value="">--- Select ---</option>
-									<option value="confirmed">Confirmed</option>
-									<option value="death">Deaths</option>
-									<option value="recovered">Recovered</option>
-								</select>
+							<i class="glyphicon glyphicon-exclamation-sign"></i>
+							<%= ElevatorMedia::Streamer.getContent("death", "quebec").html_safe %>
 						</div>
 
 						<div class="col-sm-3">
-							<i class="glyphicon glyphicon-flag"></i>
-							<h3>ONLINE SUPPORT 24/7</h3>
-							<%= puts "----------------"%>
-							<%= puts @selected_status%>
-							<%= puts @selected_province%>
-							<%= puts "----------------"%>
-							<p><%= ElevatorMedia::Streamer.getContent(@selected_status, @selected_province) %></p>
+							<i class="glyphicon glyphicon-cloud"></i>
+							<h3>Temperature</h3>
+							<p>Lorem ipsum dolor sit amet</p>
 						</div>
 
 					</div>
@@ -1066,12 +1052,6 @@
 			});
 			
 		});
-
-		// $("#province").change(function() {
-		// 	var b = $(#foo).data('bar');
-		// 	var c = "string" + b;
-		// });
 		</script>
-		
 	</body>
 </html>

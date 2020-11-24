@@ -10,35 +10,30 @@ module ElevatorMedia
             @response = ""
 
             if status == nil && province == nil
-                @response = "Infos are nil"
+                @response = "<h2>Infos are nil</h2>"
                 return @response
             end
 
             if status == "" || province == "" 
-                @response = "Please select all infos required"
+                @response = "<h2>Please select all infos required</h2>"
                 return @response
             end
 
             if @response == ""
-                ##### API CODE START #####
-                ##### FROM https://rapidapi.com/kaushikvapiwala/api/covid1910/endpoints #####
 
-
-                    response = get_covid_stats_from_web(status, province)
-
-                ##### API CODE STOP #####
+                response = get_covid_stats_from_web(status, province)
 
                 parsed_json = JSON.parse(response.body)
                 number_of_case = parsed_json[0]["#{status}"]
                 capitalized_province = province.capitalize
 
-                @response = "#{capitalized_province} has #{number_of_case} #{status} cases."
-
+                @response = "<h2>#{capitalized_province} has #{number_of_case} #{status} cases.</h2>"
                 return @response
             end
         end
 
         def self.get_covid_stats_from_web(status, province)
+            ##### FROM https://rapidapi.com/kaushikvapiwala/api/covid1910/endpoints #####
 
             url = URI("https://covid1910.p.rapidapi.com/data/#{status}/country/canada/province/#{province}")
 
