@@ -2,19 +2,9 @@ require 'elevator_media'
 
 describe ElevatorMedia::Streamer do
     describe "getContent" do 
-        context "Return Zero" do
-            it 'returns zero' do
-                expect(ElevatorMedia::Streamer.getContent("")).to eq("")  
-            end 
-        end
-        context "Return input" do
-            it 'returns input' do
-                expect(ElevatorMedia::Streamer.getContent("HTML")).to eq("HTML")  
-            end 
-        end
-        context "Return input" do
-            it 'returns input' do
-                expect(ElevatorMedia::Streamer.getContent("HTML")).to eq("HTML")  
+        context "Return province" do
+            it 'returns province' do
+                expect(ElevatorMedia::Streamer.getContent("quebec")).to be_kind_of(Object) 
             end 
         end
     end
