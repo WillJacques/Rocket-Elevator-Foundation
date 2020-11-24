@@ -1247,11 +1247,6 @@ function _owl_carousel() {
                 // Progress Bar
                 var $opt = eval('(' + options + ')');  // convert text to json
 
-                if($opt.progressBar == 'true') {
-                    var afterInit = progressBar;
-                } else {
-                    var afterInit = false;
-                }
 
                 var defaults = {
                     items: 					5,
@@ -1309,9 +1304,7 @@ function _owl_carousel() {
                     beforeUpdate: 			false,
                     afterUpdate: 			false,
                     beforeInit: 			false,
-                    afterInit: 				afterInit,
                     beforeMove: 			false,
-                    afterMove: 				(afterInit == false) ? false : moved,
                     afterAction: 			false,
                     startDragging: 			false,
                     afterLazyLoad: 			false

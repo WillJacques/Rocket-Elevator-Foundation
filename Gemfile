@@ -76,36 +76,19 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'font-awesome-sass', '~> 4.3.0'
 gem 'jquery-ui-rails'
 gem 'bootstrap-social-rails'
-
 gem 'activeadmin'
 gem 'devise'
 gem 'jquery-rails'
 gem 'owlcarousel-rails', '~> 2.2', '>= 2.2.3.5'
-
-
 gem 'popper_js', '~> 1.9', '>= 1.9.9'
-
-#try new gems for countdown
-
 gem 'jquery-countdown-rails', '~> 2.0', '>= 2.0.2'
-
-
 gem 'country_select', '~> 4.0'
-
 gem 'pg', '~> 1.2', '>= 1.2.3'
-
 gem 'faker', '~> 2.14'
-
-
 gem 'populator', '~> 1.0'
-
-
 gem 'omniauth'
-
 gem 'cancancan'
-
 gem "figaro"
-
 gem 'twilio-ruby'
 gem "slack-notifier"
 gem 'ibm_watson', '~> 1.6'
@@ -114,3 +97,4 @@ gem 'wavefile', '~> 1.1', '>= 1.1.1'
 gem 'dropbox_api'
 gem 'dynamic_selectable'
 gem 'simple_form'
+gem 'rspec', '~> 3.0'
