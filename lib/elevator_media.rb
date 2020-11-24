@@ -4,6 +4,7 @@ module ElevatorMedia
             require 'uri'
             require 'net/http'
             require 'openssl'
+            require 'json'
 
             url = URI("https://covid1910.p.rapidapi.com/data/confirmed/country/canada/province/#{input}")
 
@@ -17,6 +18,9 @@ module ElevatorMedia
 
             response = http.request(request)
             puts response.read_body
+            parsed_json = JSON.parse(response.body)
+            puts parsed_json[0]["province"]
+            return parsed_json[0]["province"]
         end
     end
 end
