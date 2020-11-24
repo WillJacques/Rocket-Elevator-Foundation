@@ -25,7 +25,7 @@ module ElevatorMedia
                 response = fetch_data_from_url(url, 'covid1910.p.rapidapi.com')
 
                 parsed_json = JSON.parse(response.body)
-                number_of_case = parsed_json[0]["#{status}"]
+                number_of_case = parsed_json[0]["#{status}"].to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
                 capitalized_province = province.capitalize
 
                 response = "<p>has now #{number_of_case} #{status} cases.</p>"
