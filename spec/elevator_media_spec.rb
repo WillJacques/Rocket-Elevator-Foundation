@@ -1,10 +1,11 @@
 require 'elevator_media/streamer'
+require 'rails_helper'
 
 describe ElevatorMedia::Streamer do
     describe "getContent" do 
         context "Return Quebec Covid Count" do
             it 'returns integrated string on status for a province' do
-                expect(ElevatorMedia::Streamer.getContent("confirmed","quebec")).to be_kind_of(String) 
+                expect(ElevatorMedia::Streamer.getContent("confirmed","alberta")).to be_kind_of(String) 
             end 
             it 'returns "Please select all infos required" if one is not selected' do
                 expect(ElevatorMedia::Streamer.getContent("death", "")).to eq("<h2>Please select all infos required</h2>") 
@@ -32,7 +33,7 @@ describe ElevatorMedia::Streamer do
         end
     end
 
-    describe "get_covid_stats_from_web" do
+    #describe "get_covid_stats_from_web" do
 
         # it "should http the right service" do
         #     net_http = double('net_hhtp')
@@ -47,7 +48,7 @@ describe ElevatorMedia::Streamer do
         # require 'webmock/rspec'
         # WebMock.disable_net_connect!(allow_localhost: true)
 
-    end    
+    #end    
 
 end
 
