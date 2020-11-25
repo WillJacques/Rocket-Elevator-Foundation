@@ -5,7 +5,7 @@ describe ElevatorMedia::Streamer do
     describe "getContent" do 
         context "Return Quebec Covid Count" do
             it 'returns integrated string on status for a province' do
-                expect(ElevatorMedia::Streamer.getContent("confirmed","quebec")).to be_kind_of(String) 
+                expect(ElevatorMedia::Streamer.getContent("confirmed","ontario")).to be_kind_of(String) 
             end 
             it 'returns "Please select all infos required" if one is not selected' do
                 expect(ElevatorMedia::Streamer.getContent("death", "")).to eq("<h2>Please select all infos required</h2>") 
@@ -67,5 +67,15 @@ RSpec.describe "routes for Interventions", :type => :routing do
     it "routes /intervention to the intervention controller" do
         expect(get("/intervention")).
             to route_to("interventions#new")
+    end
+end
+
+RSpec.describe QuotesController, :type => :controller do
+    describe "index" do
+        context "on run" do
+            it "displays all quotes from the database" do
+                expect(Quote.count).to eq(42)
+            end
+        end
     end
 end
