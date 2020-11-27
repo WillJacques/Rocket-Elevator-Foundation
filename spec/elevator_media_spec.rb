@@ -32,55 +32,6 @@ describe ElevatorMedia::Streamer do
             end 
         end
     end
-
-    # describe "get_covid_stats_from_web" do
-    #     it "should http the right service" do
-    #         net_http = double('net_hhtp')
-    #         expect(Net::HTTP).to receive(:new).with("covid1910.p.rapidapi.com", 443) {net_http}
-    #         expect(net_http).to receive(:use_ssl=).with(true)
-    #         expect(net_http).to receive(:verify_mode=).with(OpenSSL::SSL::VERIFY_NONE)
-    #         service_response = double('service_response')
-    #         expect(Net::HTTP::Get).to receive(:new).with(URI("https://covid1910.p.rapidapi.com/data/whatever/country/canada/province/quebec")) {service_response}
-    #         ElevatorMedia::Streamer.get_covid_stats_from_web('whatever', 'quebec')
-    #     end
-    # end    
 end
 
-RSpec.describe LeadsController do
-    describe "search in lead ID #1" do
-        it 'should get phone number from first lead' do
-            firstlead = Lead.new(id: 1,phone: '1-732-667-6753').save
-            expect(Lead.find(1)[:phone]).to eq('1-732-667-6753') 
-            expect(Lead.count).to eq(1)
-        end
-    end
-end
 
-RSpec.describe QuotesController, :type => :controller do
-    describe "GET new_quote" do
-        it "has a 200 status code" do
-            get :new
-            expect(response.status).to eq(200)
-        end
-    end
-end
-
-RSpec.describe "routes for Interventions", :type => :routing do
-    it "routes /intervention to the intervention controller" do
-        expect(get("/intervention")).
-            to route_to("interventions#new")
-    end
-end
-
-RSpec.describe QuotesController, :type => :controller do
-    describe "index" do
-        context "on run" do
-            it "displays all quotes from the database" do
-                firstquote = Quote.create!(no_of_floors: 1)
-                secondquote = Quote.create!(no_of_floors: 2)
-                thirdquote = Quote.create!(no_of_floors: 3)
-                expect(Quote.count).to eq(3)
-            end
-        end
-    end
-end
