@@ -23,8 +23,7 @@ module ElevatorMedia
             if response == ""
                 url = URI("https://covid1910.p.rapidapi.com/data/#{status}/country/canada/province/#{province}")
                 response = fetch_data_from_url(url, 'covid1910.p.rapidapi.com')
-                puts response
-                puts response.body
+                
                 parsed_json = JSON.parse(response.body)
                 number_of_case = parsed_json[0]["#{status}"].to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
                 capitalized_province = province.capitalize
@@ -41,8 +40,6 @@ module ElevatorMedia
         def self.getContent2(first_info)
             url = URI("https://covid-19-data.p.rapidapi.com/totals")
             response = fetch_data_from_url(url, 'covid-19-data.p.rapidapi.com')
-            puts response
-            puts response.body
 
             parsed_json = JSON.parse(response.body)
             number_of_confirmed_worldwide = parsed_json[0]["#{first_info}"].to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
@@ -57,8 +54,6 @@ module ElevatorMedia
             url = URI("https://weatherapi-com.p.rapidapi.com/forecast.json?q=#{city}&days=3")
 
             response = fetch_data_from_url(url, 'weatherapi-com.p.rapidapi.com')
-            puts response
-            puts response.body
             parsed_json = JSON.parse(response.body)
 
             temperature_outside = parsed_json["current"]["temp_c"]
