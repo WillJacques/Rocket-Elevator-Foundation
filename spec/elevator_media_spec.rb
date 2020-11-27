@@ -49,7 +49,9 @@ end
 RSpec.describe LeadsController do
     describe "search in lead ID #1" do
         it 'should get phone number from first lead' do
+            firstlead = Lead.new(id: 1,phone: '1-732-667-6753').save
             expect(Lead.find(1)[:phone]).to eq('1-732-667-6753') 
+            expect(Lead.count).to eq(1)
         end
     end
 end
@@ -74,7 +76,10 @@ RSpec.describe QuotesController, :type => :controller do
     describe "index" do
         context "on run" do
             it "displays all quotes from the database" do
-                expect(Quote.count).to eq(42)
+                firstquote = Quote.create!(no_of_floors: 1)
+                secondquote = Quote.create!(no_of_floors: 2)
+                thirdquote = Quote.create!(no_of_floors: 3)
+                expect(Quote.count).to eq(3)
             end
         end
     end
