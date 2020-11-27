@@ -7,7 +7,7 @@ All tests are in SPEC folder
 
 getContent method is in streamer.rb file and streamer.rb is in lib/elevator_media folder.
 
-tu run test : bundle exec rspec --format documentation.
+to run test : bundle exec rspec --format documentation.
 
 Contains all code for Consolidation Week in Odyssey :
 
