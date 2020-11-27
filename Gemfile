@@ -100,4 +100,4 @@ gem 'dynamic_selectable'
 gem 'simple_form'
 gem 'rspec', '~> 3.0'
 gem 'rspec-rails'
-gem 'simplecov', '~> 0.12.0'
+gem 'simplecov', require: false, group: :test
