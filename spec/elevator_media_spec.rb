@@ -7,6 +7,9 @@ describe ElevatorMedia::Streamer do
             it 'returns integrated string on status for a province' do
                 expect(ElevatorMedia::Streamer.getContent("confirmed","ontario")).to be_kind_of(String) 
             end 
+            it 'returns Service unavailable on wrong API Call' do
+                expect(ElevatorMedia::Streamer.getContent("confimed","ontario")).to eq("Service unavailable")
+            end 
             it 'returns "Please select all infos required" if one is not selected' do
                 expect(ElevatorMedia::Streamer.getContent("death", "")).to eq("<h2>Please select all infos required</h2>") 
             end 
@@ -29,6 +32,9 @@ describe ElevatorMedia::Streamer do
         context "Return temperature from quebec" do
             it 'returns integrated string on temperature for a city' do
                 expect(ElevatorMedia::Streamer.getContent3("quebec")).to be_kind_of(String) 
+            end 
+            it 'returns Service unavailable on wrong API Call' do
+                expect(ElevatorMedia::Streamer.getContent3("qbec")).to eq("Service unavailable")
             end 
         end
     end
