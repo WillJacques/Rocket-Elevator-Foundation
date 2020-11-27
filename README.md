@@ -3,7 +3,7 @@
 
 WEEK 10 : TESTING !
 
-All tests are in SPEC file
+All tests are in SPEC folder
 
 getContent method is in streamer.rb file and streamer.rb is in lib/elevator_media folder.
 
