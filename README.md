@@ -1,6 +1,14 @@
 
 # Rocket-Elevator-Foundation
 
+WEEK 10 : TESTING !
+
+All tests are in SPEC file
+
+getContent method is in streamer.rb file and streamer.rb is in lib/elevator_media folder.
+
+tu run test : bundle exec rspec --format documentation.
+
 Contains all code for Consolidation Week in Odyssey :
 
 REPO for REST_API : https://github.com/WillJacques/Rocket-Elevator-Foundation-REST
