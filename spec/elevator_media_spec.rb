@@ -8,7 +8,7 @@ describe ElevatorMedia::Streamer do
                 expect(ElevatorMedia::Streamer.getContent("confirmed","ontario")).to be_kind_of(String) 
             end 
             it 'returns Service unavailable on wrong API Call' do
-                expect(ElevatorMedia::Streamer.getContent("confimed","ontario")).to eq("Service unavailable")
+                expect(ElevatorMedia::Streamer.getContent("confimed","ontario")).to eq("<p>Service unavailable</p>")
             end 
             it 'returns "Please select all infos required" if one is not selected' do
                 expect(ElevatorMedia::Streamer.getContent("death", "")).to eq("<h2>Please select all infos required</h2>") 
@@ -34,7 +34,7 @@ describe ElevatorMedia::Streamer do
                 expect(ElevatorMedia::Streamer.getContent3("quebec")).to be_kind_of(String) 
             end 
             it 'returns Service unavailable on wrong API Call' do
-                expect(ElevatorMedia::Streamer.getContent3("qbec")).to eq("Service unavailable")
+                expect(ElevatorMedia::Streamer.getContent3("qbec")).to eq("<p>Service unavailable</p>")
             end 
         end
     end

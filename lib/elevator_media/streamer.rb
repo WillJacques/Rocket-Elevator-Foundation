@@ -23,7 +23,7 @@ module ElevatorMedia
             if response == ""
                 url = URI("https://covid1910.p.rapidapi.com/data/#{status}/country/canada/province/#{province}")
                 hresponse = fetch_data_from_url(url, 'covid1910.p.rapidapi.com')
-                if hresponse.code == 200
+                if hresponse.code == '200'
                     parsed_json = JSON.parse(hresponse.body)
                     number_of_case = parsed_json[0]["#{status}"].to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
                     capitalized_province = province.capitalize
@@ -31,7 +31,7 @@ module ElevatorMedia
                     response = "<p>has now #{number_of_case} #{status} cases.</p>"
                     return response
                 else
-                    return "Service unavailable"
+                    return "<p>Service unavailable</p>"
                 end
             end
         end
@@ -42,14 +42,14 @@ module ElevatorMedia
         def self.getContent2(first_info)
             url = URI("https://covid-19-data.p.rapidapi.com/totals")
             hresponse = fetch_data_from_url(url, 'covid-19-data.p.rapidapi.com')
-            if hresponse.code == 200
+            if hresponse.code == '200'
                 parsed_json = JSON.parse(hresponse.body)
                 number_of_confirmed_worldwide = parsed_json[0]["#{first_info}"].to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
 
                 response = "<p>#{number_of_confirmed_worldwide} confirmed cases</p>"
                 return response
             else
-                return "Service unavailable"
+                return "<p>Service unavailable</p>"
             end
         end
         
@@ -59,7 +59,7 @@ module ElevatorMedia
         def self.getContent3(city)
             url = URI("https://weatherapi-com.p.rapidapi.com/forecast.json?q=#{city}&days=3")
             hresponse = fetch_data_from_url(url, 'weatherapi-com.p.rapidapi.com')
-            if hresponse.code == 200
+            if hresponse.code == '200'
                 parsed_json = JSON.parse(hresponse.body)
 
                 temperature_outside = parsed_json["current"]["temp_c"]
@@ -69,7 +69,7 @@ module ElevatorMedia
                 response = "<p>Currently : #{temperature_outside}ºC and it's #{temperature_text} outside <img src='#{temperature_icon}'></p>"
                 return response
             else
-                return "Service unavailable"
+                return "<p>Service unavailable</p>"
             end
         end
 
