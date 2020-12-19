@@ -103,3 +103,4 @@ gem 'rspec-rails'
 gem 'simplecov', require: false, group: :test
 gem 'newrelic_rpm'
 gem 'newrelic-infinite_tracing'
+gem 'sassc', '~> 2.4.0'

@@ -474,6 +474,7 @@ DEPENDENCIES
   rspec-rails
   rvm1-capistrano3
   sass-rails (~> 5.0)
+  sassc (~> 2.4.0)
   selenium-webdriver
   simple_form
   simplecov
