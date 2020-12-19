@@ -102,3 +102,5 @@ gem 'simplecov', require: false, group: :test
 gem 'newrelic_rpm'
 gem 'newrelic-infinite_tracing'
 gem 'sassc', '~> 2.3.0'
+gem 'ibm_watson', '~> 1.6.0'
+gem 'pg', '~> 1.2', '>= 1.2.3'
