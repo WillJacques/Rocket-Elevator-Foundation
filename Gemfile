@@ -103,4 +103,4 @@ gem 'rspec-rails'
 gem 'simplecov', require: false, group: :test
 gem 'newrelic_rpm'
 gem 'newrelic-infinite_tracing'
-gem 'sshkit-sudo'
+# gem 'sshkit-sudo'
