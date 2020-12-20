@@ -104,3 +104,4 @@ gem 'simplecov', require: false, group: :test
 gem 'newrelic_rpm'
 gem 'newrelic-infinite_tracing'
 gem 'sshkit-sudo'
+gem 'concurrent-ruby', '~> 1.1', '>= 1.1.7'

@@ -433,6 +433,7 @@ DEPENDENCIES
   capistrano3-puma
   capybara (>= 2.15)
   coffee-rails (~> 4.2)
+  concurrent-ruby (~> 1.1, >= 1.1.7)
   country_select (~> 4.0)
   devise
   dropbox_api
