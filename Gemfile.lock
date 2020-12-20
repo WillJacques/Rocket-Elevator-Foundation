@@ -440,6 +440,7 @@ DEPENDENCIES
   figaro
   font-awesome-rails (~> 4.7, >= 4.7.0.5)
   font-awesome-sass (~> 4.3.0)
+  i18n (~> 1.8, >= 1.8.5)
   ibm_watson (~> 1.6)
   jbuilder (~> 2.5)
   jquery-countdown-rails (~> 2.0, >= 2.0.2)
