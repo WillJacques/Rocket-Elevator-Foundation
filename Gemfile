@@ -101,6 +101,3 @@ gem 'simple_form'
 gem 'rspec', '~> 3.0'
 gem 'rspec-rails'
 gem 'simplecov', require: false, group: :test
-gem 'newrelic_rpm'
-gem 'newrelic-infinite_tracing'
-gem 'i18n', '~> 1.8', '>= 1.8.5'
