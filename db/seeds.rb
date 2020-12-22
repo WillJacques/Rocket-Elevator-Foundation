@@ -12403,7 +12403,7 @@ j=1
 
                                     elevators = Elevator.new(
                                         column_id: cCounter,
-                                        serial_number:Faker::Device.serial,
+                                        serial_number:Faker::Number.number(digits: 10),
                                         model: EModel,
                                         type_of_building:Battery.find(batCounter)[:type_of_building].to_s,
                                         status:status[stat],
