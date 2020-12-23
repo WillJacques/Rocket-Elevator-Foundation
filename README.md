@@ -1,6 +1,10 @@
 
 # Rocket-Elevator-Foundation
 
+WEEK 14 : Google analytics
+
+Added some snipets to do the tracking for Google Analyticas dashboard...
+
 WEEK 10 : TESTING !
 
 All tests are in SPEC folder
