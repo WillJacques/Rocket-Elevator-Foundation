@@ -31,7 +31,7 @@ RSpec.configure do |config|
           'Host'=>'covid1910.p.rapidapi.com',
           'User-Agent'=>'Ruby',
           'X-Rapidapi-Host'=>'covid1910.p.rapidapi.com',
-          'X-Rapidapi-Key'=>'0df282d5dbmsh02fede9da7f3a2bp1f9b65jsnabd892a3474b'
+          'X-Rapidapi-Key'=>ENV['RapidAPI_key']
            }).
          to_return(status: 200, body: '[{"country":"canada","province":"ontario","confirmed":112898}]', headers: { "content-type": "application/json; charset=utf-8"})
     stub_request(:get, "https://covid-19-data.p.rapidapi.com/totals").
@@ -42,7 +42,7 @@ RSpec.configure do |config|
           'Host'=>'covid-19-data.p.rapidapi.com',
           'User-Agent'=>'Ruby',
           'X-Rapidapi-Host'=>'covid-19-data.p.rapidapi.com',
-          'X-Rapidapi-Key'=>'0df282d5dbmsh02fede9da7f3a2bp1f9b65jsnabd892a3474b'
+          'X-Rapidapi-Key'=>ENV['RapidAPI_key']
            }).
          to_return(status: 200, body: '[{"confirmed":61496153,"recovered":42291530,"critical":105006,"deaths":1442008,"lastChange":"2020-11-27T13:29:28+01:00","lastUpdate":"2020-11-27T13:45:03+01:00"}]', headers: {})
     stub_request(:get, "https://weatherapi-com.p.rapidapi.com/forecast.json?days=3&q=quebec").
@@ -53,7 +53,7 @@ RSpec.configure do |config|
           'Host'=>'weatherapi-com.p.rapidapi.com',
           'User-Agent'=>'Ruby',
           'X-Rapidapi-Host'=>'weatherapi-com.p.rapidapi.com',
-          'X-Rapidapi-Key'=>'0df282d5dbmsh02fede9da7f3a2bp1f9b65jsnabd892a3474b'
+          'X-Rapidapi-Key'=>ENV['RapidAPI_key']
            }).
          to_return(status: 200, body: '{"location":{"name":"Quebec","region":"Quebec","country":"Canada","lat":46.8,"lon":-71.25,"tz_id":"America/Toronto","localtime_epoch":1606481149,"localtime":"2020-11-27 7:45"},"current":{"last_updated_epoch":1606480210,"last_updated":"2020-11-27 07:30","temp_c":1.7,"temp_f":35.1,"is_day":0,"condition":{"text":"Clear","icon":"//cdn.weatherapi.com/weather/64x64/night/113.png","code":1000},"wind_mph":9.4,"wind_kph":15.1,"wind_degree":220,"wind_dir":"SW","pressure_mb":1014.0,"pressure_in":30.4,"precip_mm":0.1,"precip_in":0.0,"humidity":100,"cloud":0,"feelslike_c":1.5,"feelslike_f":34.7,"vis_km":0.0,"vis_miles":0.0,"uv":1.0,"gust_mph":3.6,"gust_kph":5.8}}', headers: {})
     stub_request(:get, "https://weatherapi-com.p.rapidapi.com/forecast.json?days=3&q=qbec").
@@ -64,7 +64,7 @@ RSpec.configure do |config|
           'Host'=>'weatherapi-com.p.rapidapi.com',
           'User-Agent'=>'Ruby',
           'X-Rapidapi-Host'=>'weatherapi-com.p.rapidapi.com',
-          'X-Rapidapi-Key'=>'0df282d5dbmsh02fede9da7f3a2bp1f9b65jsnabd892a3474b'
+          'X-Rapidapi-Key'=>ENV['RapidAPI_key']
            }).
          to_return(status: 400, body: "", headers: {})  
     stub_request(:get, "https://covid1910.p.rapidapi.com/data/confimed/country/canada/province/ontario").
@@ -75,7 +75,7 @@ RSpec.configure do |config|
           'Host'=>'covid1910.p.rapidapi.com',
           'User-Agent'=>'Ruby',
           'X-Rapidapi-Host'=>'covid1910.p.rapidapi.com',
-          'X-Rapidapi-Key'=>'0df282d5dbmsh02fede9da7f3a2bp1f9b65jsnabd892a3474b'
+          'X-Rapidapi-Key'=>ENV['RapidAPI_key']
            }).
          to_return(status: 400, body: "", headers: {})
   end
